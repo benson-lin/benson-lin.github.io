@@ -1,14 +1,9 @@
-/* TEAM */
-Developer & Designer: Josh Gerdes
-Twitter: @joshgerdes
-Site: http://joshgerdes.com
-Location: Minneapolis, MN, USA
-						
-/* THANKS */
-Name: Dale Anthony
+# humanstxt.org/
 
-/* SITE */
-Last update: 2016/02/10
-Standards: HTML5, CSS3
-Components: Jekyll
-Software: Sublime Text, Photoshop
+# TEAM
+
+	Your name - your home
+
+# TECHNOLOGY
+
+	HTML5, CSS3, JS, JEKYLL
