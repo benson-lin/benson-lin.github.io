@@ -1,7 +1,7 @@
 ---
 title: "Abstract Class or Interface"
 layout: post
-date: 2016-03-21 20:35
+date: 2016-03-21
 tag:
 - markdown
 - components
