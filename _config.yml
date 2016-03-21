@@ -28,7 +28,7 @@ disqus: mydisqus
 # linkedin: mylinkedin
 ## youtube: myyoutube
 ## spotify: myspotify
-github: mygithub
+github: zebinlin
 ## medium: medium
 email: l096101803@qq.com
 
@@ -38,8 +38,8 @@ email: l096101803@qq.com
 width: normal
 
 # if you don't need pagination, comment the *paginate* configs below
-# paginate: 5
-# paginate_path: "blog/:num/"
+paginate: 2
+paginate_path: "blog/:num/"
 
 # if you don't need projects, comment the *projects* configs below
 projects: true
