@@ -1,5 +1,5 @@
 ---
-title: "选择抽象类还是接口？"
+title: "Abstract Class or Interface"
 layout: post
 date: 2016-03-21 20:35
 tag:
