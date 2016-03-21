@@ -1,6 +1,14 @@
-# 选择抽象类还是接口？
-
 ---
+title: "选择抽象类还是接口？"
+layout: post
+date: 2016-03-21 20:35
+tag:
+- markdown
+- components
+- extra
+blog: true
+---
+
 
 
 ## 区别
