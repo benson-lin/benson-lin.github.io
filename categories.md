@@ -1,5 +1,5 @@
 ---
 layout: categories
-title: ZeBin-Lin
+title: Categories
 permalink: /categories/
 ---
