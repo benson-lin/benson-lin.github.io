@@ -1,3 +1,4 @@
+# for local testing
 # main text of home
 name: ZeBin Lin
 bio: 'A Man who concentrates on software development '
@@ -6,7 +7,7 @@ bio: 'A Man who concentrates on software development '
 external-image: false
 picture: 'assets/images/profile.png'
 
-url: http://zebinlin.github.io/
+url: http://zebinlin.github.io
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -38,7 +39,7 @@ email: l096101803@qq.com
 width: large
 
 # if you don't need pagination, comment the *paginate* configs below
-paginate: 1
+paginate: 2
 paginate_path: "blog/:num/"
 
 # if you don't need projects, comment the *projects* configs below
