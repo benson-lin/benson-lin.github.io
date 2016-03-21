@@ -1,5 +1,5 @@
 ---
 layout: categories
-title: ZeBin-Lin的技术博客
+title: ZeBin-Lin
 permalink: /categories/
 ---
