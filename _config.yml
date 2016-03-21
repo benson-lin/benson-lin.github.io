@@ -20,17 +20,17 @@ analytics-google: 'UA-MYANALYTICS'
 disqus: mydisqus
 
 # if you don't have any of social below, comment the line
-facebook: myfacebook
-twitter: mytwitter
+## facebook: myfacebook
+## twitter: mytwitter
 # google: mygoogle
 # instagram: myinstagram
 # pinterest: mypinterest
 # linkedin: mylinkedin
-youtube: myyoutube
-spotify: myspotify
+## youtube: myyoutube
+## spotify: myspotify
 github: mygithub
-medium: medium
-email: myemail@gmail.com
+## medium: medium
+email: l096101803@qq.com
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
