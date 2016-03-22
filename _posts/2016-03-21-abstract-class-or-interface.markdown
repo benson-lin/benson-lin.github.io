@@ -4,9 +4,7 @@ layout: post
 date: 2016-03-21
 permalink : /blogs/abstract-class-or-interface
 tag:
-- markdown
-- components
-- extra
+- java
 blog: true
 ---
 
@@ -28,7 +26,7 @@ blog: true
 
 下面是一个网上流传最广泛的例子：门和警报的例子：门都有open( )和close( )两个动作，此时我们可以定义通过抽象类和接口来定义这个抽象概念：
 
-```
+```java
 abstract class Door {
     public abstract void open();
     public abstract void close();
@@ -36,7 +34,7 @@ abstract class Door {
 ```
 或者：
 
-```
+```java
 interface Door {
     public abstract void open();
     public abstract void close();
@@ -51,7 +49,7 @@ interface Door {
 　　
 　　从这里可以看出， Door的open() 、close()和alarm()根本就属于两个不同范畴内的行为，open()和close()属于门本身固有的行为特性，而alarm()属于延伸的附加行为。因此最好的解决办法是单独将报警设计为一个接口，包含alarm()行为,Door设计为单独的一个抽象类，包含open和close两种行为。再设计一个报警门继承Door类和实现Alarm接口。
 
-```    
+```java    
 interface Alram {
     void alarm();
 }

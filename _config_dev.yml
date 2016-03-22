@@ -5,10 +5,10 @@ bio: 'A Man who concentrates on software development '
 
 # if it's an external image, update below for true
 external-image: false
-picture: 'assets/images/profile.png'
+picture: '/assets/images/profile.png'
 
 url: http://localhost:4000
-# your url: http://USERNAME.github.io
+# your url: http://zebinlin.github.io http://localhost:4000
 
 permalink: /:title/
 
@@ -18,7 +18,7 @@ highlighter: rouge
 analytics-google: 'UA-MYANALYTICS'
 
 # if you don't want comments in your posts, set to false
-disqus: mydisqus
+disqus: zebinlin
 
 # if you don't have any of social below, comment the line
 ## facebook: myfacebook
@@ -40,7 +40,7 @@ width: large
 
 # if you don't need pagination, comment the *paginate* configs below
 paginate: 2
-paginate_path: "blog/:num/"
+paginate_path: "blogs/:num/"
 
 # if you don't need projects, comment the *projects* configs below
 projects: true
@@ -48,6 +48,9 @@ projects: true
 # if you don't need "about" or "blog", comment them out below
 about: true
 blog: true
+
+blogs-branch: '/blogs'
+projects-bracnch: '/projects'
 
 # do you want to show the "read time" of the posts?
 read-time: true
