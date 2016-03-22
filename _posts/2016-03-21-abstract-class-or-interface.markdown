@@ -28,7 +28,7 @@ blog: true
 
 下面是一个网上流传最广泛的例子：门和警报的例子：门都有open( )和close( )两个动作，此时我们可以定义通过抽象类和接口来定义这个抽象概念：
 
-```
+```java
 abstract class Door {
     public abstract void open();
     public abstract void close();
@@ -36,7 +36,7 @@ abstract class Door {
 ```
 或者：
 
-```
+```java
 interface Door {
     public abstract void open();
     public abstract void close();
