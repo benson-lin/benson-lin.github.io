@@ -5,12 +5,12 @@ bio: 'A Man who concentrates on software development '
 
 # if it's an external image, update below for true
 external-image: false
-picture: 'assets/images/profile.png'
+picture: '/assets/images/profile.png'
 
 url: http://zebinlin.github.io
 # your url: http://USERNAME.github.io
 
-permalink: /:title/
+permalink: /blog/:title/
 
 markdown: kramdown
 highlighter: rouge
