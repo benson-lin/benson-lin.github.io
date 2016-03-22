@@ -2,6 +2,7 @@
 title: "Markdown Common Elements"
 layout: post
 date: 2016-02-24 22:44
+permalink : /blogs/markdown-common-elements
 tag:
 - markdown
 - elements

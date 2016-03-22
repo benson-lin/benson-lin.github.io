@@ -2,6 +2,7 @@
 title: "Abstract Class or Interface"
 layout: post
 date: 2016-03-21
+permalink : /blogs/abstract-class-or-interface
 tag:
 - markdown
 - components
