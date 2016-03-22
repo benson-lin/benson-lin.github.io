@@ -7,7 +7,7 @@ bio: 'A Man who concentrates on software development '
 external-image: false
 picture: '/assets/images/profile.png'
 
-url: http://localhost:4000
+url: http://zebinlin.github.io
 # your url: http://zebinlin.github.io http://localhost:4000
 
 permalink: /:title/
