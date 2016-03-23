@@ -1,11 +1,11 @@
-# ZeBin Lin's Website
+﻿# ZeBin Lin's Website
 
 ***
 
 ![Screenshot](screen-shot.png)
 
 <p align="center">
-    <b><a href="README.md#what-has-inside?">What has inside?</a></b>
+    <b><a href="README.md#what-has-inside">What has inside?</a></b>
     |
     <b><a href="README.md#blog">Blog</a></b>
     |
@@ -27,7 +27,7 @@
 
 分享学习过程中的笔记和资料。
 
-## Peojects
+## Projects
 
 暂时无项目
 
