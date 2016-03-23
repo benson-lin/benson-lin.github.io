@@ -1,17 +1,17 @@
 {
-  "name": "indigo",
+  "name": "zebinlin",
   "version": "0.1.0",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sergiokopplin/indigo.git"
+    "url": "git+https://github.com/zebinlin/zebinlin.github.io.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sergiokopplin/indigo/issues"
+    "url": "https://github.com/zebinlin/zebinlin.github.io/issues"
   },
-  "homepage": "https://github.com/sergiokopplin/indigo#readme",
+  "homepage": "https://github.com/zebinlin#readme",
   "devDependencies": {
     "autoprefixer-stylus": "^0.8.1",
     "browser-sync": "^2.10.1",
