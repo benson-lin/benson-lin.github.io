@@ -61,8 +61,13 @@ samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
+.highlighter-rouge {
+  background:  #f8f8f8;
+
+}
+
 .highlight .hll { background-color: #ffffcc }
-.highlight  { background: #eeeedd; }
+.highlight  { background: #f8f8f8; color: black;}
 .highlight .c { color: #228B22 } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight .k { color: #8B008B; font-weight: bold } /* Keyword */
@@ -123,6 +128,7 @@ samp {
 .highlight .vg { color: #00688B } /* Name.Variable.Global */
 .highlight .vi { color: #00688B } /* Name.Variable.Instance */
 .highlight .il { color: #B452CD } /* Literal.Number.Integer.Long */
+
 
 
 body,

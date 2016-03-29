@@ -36,11 +36,11 @@ blog: true
 
 	![jdk-enviroment](../assets/images/blogs/2016-03-23-jdk-enviroment.png)
 
-3. 保存后使用`source profile`是配置立即生效
+3. 保存后使用`source profile`使配置立即生效
 4. `java -v`查看是否成功配置
 	
 	![source-version](../assets/images/blogs/2016-03-23-source-version.png)
 
 ## Install rz
 
-CentOS 下使用 `yum lrzsz`
+CentOS 下使用 `yum install lrzsz`
