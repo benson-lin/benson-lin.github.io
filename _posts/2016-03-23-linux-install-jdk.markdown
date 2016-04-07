@@ -1,5 +1,5 @@
 ---
-title: "Linux安装JDK"
+title: "Linux Install JDK"
 layout: post
 date: 2016-03-23
 permalink : /blogs/linux-install-jdk
