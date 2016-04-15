@@ -7,7 +7,7 @@ bio: 'A Man who concentrates on software development '
 external-image: false
 picture: '/assets/images/profile.png'
 
-url: http://zebinlin.github.io
+url: https://zebinlin.github.io
 # your url: http://zebinlin.github.io http://localhost:4000
 
 permalink: /:title/
@@ -39,7 +39,7 @@ email: l096101803@qq.com
 width: large
 
 # if you don't need pagination, comment the *paginate* configs below
-paginate: 5
+paginate: 10
 paginate_path: "blogs/:num/"
 
 # if you don't need projects, comment the *projects* configs below
@@ -77,3 +77,4 @@ jekyll-mentions:
     base_url: https://github.com
 
 exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, Rakefile, screen-shot.png, travis.sh]
+

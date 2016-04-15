@@ -39,7 +39,7 @@ email: l096101803@qq.com
 width: large
 
 # if you don't need pagination, comment the *paginate* configs below
-paginate: 5
+paginate: 10
 paginate_path: "blogs/:num/"
 
 # if you don't need projects, comment the *projects* configs below
