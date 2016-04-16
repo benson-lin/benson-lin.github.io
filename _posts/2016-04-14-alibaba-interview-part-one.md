@@ -1,7 +1,7 @@
 ---
 title: "Alibaba Interview (Java): Part One"
 layout: post
-date: 2016-04-07
+date: 2016-04-14
 permalink : /blogs/alibaba-interview-java-part-one
 tag:
 - interview
@@ -10,7 +10,7 @@ blog: true
 
 ## 应聘岗位
 
-研发工程师Java
+研发工程师Java（2016/03/16 45min）
 
 ## 面试题
 
