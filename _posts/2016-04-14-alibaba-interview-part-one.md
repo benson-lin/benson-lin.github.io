@@ -61,7 +61,7 @@ blog: true
 
 13. 问：String有重写Object的hashcode和toString吗？
 
-    答：有，怎么实现的，我记不太清楚，答了大概的意思。其中说了重写hashcode不一定要重写equals。重写了equals不一定要重写hashcode，
+    答：有，怎么实现的，我记不太清楚，答了大概的意思。其中说了重写hashcode不一定要重写equals。重写了equals一定要重写hashcode，
 
 14. 问：为什么这样说，如果重写equals不重写hashcode会出现什么问题？
 
