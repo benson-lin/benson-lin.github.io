@@ -65,7 +65,7 @@ blog: true
 
 14. 问：为什么这样说，如果重写equals不重写hashcode会出现什么问题？
 
-    答：我举了hashmap,如果equals相同应该是同一个对象，但是如果hascoide不同就会定位到不同的槽中，导致同一个对象放在不同槽
+    答：我举了hashmap,如果equals相同应该是同一个对象，但是如果hashcode不同就会定位到不同的槽中，导致同一个对象放在不同槽
 
 15. 问：String 为什么要重写这两个方法？
 
