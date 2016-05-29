@@ -4,7 +4,7 @@ layout: post
 date: 2016-05-02
 permalink : /blogs/http-cache
 tag:
-- http
+- HTTP
 blog: true
 ---
 
