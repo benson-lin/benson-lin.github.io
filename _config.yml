@@ -7,7 +7,7 @@ bio: 'A Man who concentrates on software development '
 external-image: false
 picture: '/assets/images/profile.png'
 
-url: https://zebinlin.github.io
+url: http://blog.bensonlin.me
 # your url: http://zebinlin.github.io http://localhost:4000
 
 permalink: /:title/
