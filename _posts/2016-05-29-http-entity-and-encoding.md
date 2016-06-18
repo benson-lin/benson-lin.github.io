@@ -2,7 +2,7 @@
 title: "Http Entity & Encoding"
 layout: post
 date: 2016-05-29
-permalink : /blogs/http-entity-and-encoding
+permalink : /post/http-entity-and-encoding
 tag:
 - HTTP
 blog: true

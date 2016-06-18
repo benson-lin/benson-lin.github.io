@@ -9,15 +9,15 @@
         {% if site.blog == true %}
             {% if page.title != "Blog" %}
                 <li class="item">
-                    <a class="link" href="{{ site.url }}{{ site.blogs-branch }}">Blog</a>
+                    <a class="link" href="{{ site.url }}{{ site.blog-branch }}">Blog</a>
                 </li>
             {% endif %}
         {% endif %}
 
-        {% if site.projects == true %}
-            {% if page.title != "Projects" %}
+        {% if site.project == true %}
+            {% if page.title != "Project" %}
                 <li class="item">
-                    <a class="link" href="{{ site.url }}/projects">Projects</a>
+                    <a class="link" href="{{ site.url }}{{ site.project-branch }}">Project</a>
                 </li>
             {% endif %}
         {% endif %}
@@ -25,7 +25,7 @@
         {% if site.about == true %}
             {% if page.title != "About" %}
                 <li class="item">
-                    <a class="link" href="{{ site.url }}/about">About</a>
+                    <a class="link" href="{{ site.url }}{{ site.about-branch }}">About</a>
                 </li>
             {% endif %}
         {% endif %}

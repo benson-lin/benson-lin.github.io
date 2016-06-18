@@ -2,9 +2,9 @@
 title: "Alibaba Interview (Java): Part Two"
 layout: post
 date: 2016-04-15
-permalink : /blogs/alibaba-interview-java-part-two
+permalink : /post/alibaba-interview-java-part-two
 tag:
-- interview
+- INTERVIEW
 blog: true
 ---
 

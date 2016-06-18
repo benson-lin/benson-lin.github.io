@@ -2,9 +2,9 @@
 title: "Forgot Password Cheat Sheet"
 layout: post
 date: 2016-06-10
-permalink : /blogs/forgot-password-cheat-sheet
+permalink : /post/forgot-password-cheat-sheet
 tag:
-- Security
+- SECURITY
 blog: true
 ---
 

@@ -2,9 +2,9 @@
 title: "Resolve Hostname to IP"
 layout: post
 date: 2016-04-13
-permalink : /blogs/resolve-hostname-to-ip
+permalink : /post/resolve-hostname-to-ip
 tag:
-- Network
+- NETWORK
 blog: true
 ---
 

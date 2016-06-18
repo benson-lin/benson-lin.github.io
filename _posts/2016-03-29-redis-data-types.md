@@ -2,10 +2,10 @@
 title: "Redis Data types"
 layout: post
 date: 2016-03-29
-permalink : /blogs/redis-data-types
+permalink : /post/redis-data-types
 tag:
-- Redis
-- Java
+- REDIS
+- JAVA
 blog: true
 ---
 

@@ -2,9 +2,10 @@
 title: "Linux Install JDK"
 layout: post
 date: 2016-03-23
-permalink : /blogs/linux-install-jdk
+permalink : /post/linux-install-jdk
 tag:
-- Linux
+- LINUX
+- JAVA
 blog: true
 
 ---

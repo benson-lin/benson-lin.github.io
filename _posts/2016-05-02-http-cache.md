@@ -2,7 +2,7 @@
 title: "Http Cache"
 layout: post
 date: 2016-05-02
-permalink : /blogs/http-cache
+permalink : /post/http-cache
 tag:
 - HTTP
 blog: true
