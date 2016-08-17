@@ -12,6 +12,8 @@ blog: true
 
 **跨站脚本攻击**(Cross Site Scripting)：攻击者往Web页面里插入恶意脚本，当用户浏览该页面时，嵌入页面的脚本代码会被执行，从而达到恶意攻击用户的特殊目的。恶意的内容通常需要以一段JavaScript的形式发送到浏览器,但也可能包括HTML、Flash,或任何其他类型的浏览器可以执行的代码
 
+注入攻击的基本原理是将数据当做代码执行，如SQL注入；因此XSS攻击是另一种注入攻击
+
 XSS的危害通常包括传输私有数据,像cookie或session信息；重定向受害者看到的内容；或在用户的机器上进行恶意操作。
 
 
@@ -113,6 +115,8 @@ XSS漏洞很难被识别或从一个web应用程序删除。发现缺陷的最�
 
 ## 防御XSS的具体措施
 
+其实有很多类库都有对XSS攻击的处理，但是我们有时无法信任这些处理方式，需要自己编写代码以保证自己的网站不会遭受XSS攻击
+
 ### Rule1: 除了允许的位置外，不要将不信任的数据其他地方
 
 也就是默认否认所有, 《白帽子讲web安全》中的Secure By Default原则
@@ -168,7 +172,9 @@ HTML元素(HTML elements)如下，也就是插入html标签的内容：
 <style>selector { property : "...ESCAPE UNTRUSTED DATA BEFORE PUTTING HERE..."; } </style>   property value
 <span style="property : ...ESCAPE UNTRUSTED DATA BEFORE PUTTING HERE...">text</span>       property value
 ```
-处理方式和Rule3一致，同时需要注意的是不能使用转义接近如用`\"`转义`"`字符，因为引号字符可以会被认为是某个属性的终止，作为html执行。同时，这种捷径有可能导致转义再转义攻击。
+对于这种情况，除了字母数字，其它一律需要将所有其它字符转为\HH的形式
+
+同时需要注意的是不能使用转义接近如用`\"`转义`"`字符，因为引号字符可以会被认为是某个属性的终止，作为html执行。同时，这种捷径有可能导致转义再转义攻击。
 比如攻击者发送`\"`，然后代码转义成`\\"`，这样引号就生效了，也就是相当于没有转义
 
 ## Rule6: 在插入URL参数时对URL进行转义
