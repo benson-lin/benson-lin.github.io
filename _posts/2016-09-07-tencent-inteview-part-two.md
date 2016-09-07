@@ -1,5 +1,5 @@
 ---
-title: "腾讯二面"
+title: "Tencent Interview: Part Two"
 layout: post
 date: 2016-09-07
 permalink : /post/tencent-interview-part-two
