@@ -68,15 +68,18 @@ Host后面是github别名，新建的帐号使用这个别名做克隆和更新�
 
 ## 测试
 
+
 ```linux
 $ ssh -T git@benson-lin-psychology
-Hi chenlianjiang! You've successfully authenticated, but GitHub does not provide shell access.
+Hi benson-lin-psychology! You've successfully authenticated, but GitHub does not provide shell access.
  $ ssh -T git@benson-lin
-Hi 1047353200! You've successfully authenticated, but GitHub does not provide shell access.
+Hi benson-lin! You've successfully authenticated, but GitHub does not provide shell access.
 
 而不是
 $ ssh -T git@github.com
 ```
+
+注意：Hi后面是真正返回的github账户的用户名，而ssh命令中输入的是别名，只是这里恰好相同而已
 
 ![](img/2016-09-08-result.png)
 
@@ -87,11 +90,15 @@ $ ssh -T git@github.com
 
 **1、本地已经创建或已经clone到本地：**
 
+```linux
 $ git remote rm origin
-$ git remote add origin git@benson-lin:username/git-demo.git
+$ git remote add origin git@benson-lin:ruanyf/git-demo.git
+```
 
 **2、clone仓库时对应配置host对应的账户**
 
-git clone git@benson-lin:username/git-demo.git
+```
+git clone git@benson-lin:ruanyf/git-demo.git
+```
 
 这样这个仓库就属于benson-lin这个别名账户的了，
