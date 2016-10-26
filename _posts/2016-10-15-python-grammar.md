@@ -12,6 +12,8 @@ blog: true
 - Python是**动态类型语言**，会基于变量值，自动的判断变量的数据类型；
 - Python是**强类型语言**, 变量在类型决定下来以后(即使是动态判断数据类型)，以后只能是那几种相关类型
 
+本博客将在以后的学习中不断补充下面的知识点有但是未在文章中展示的内容
+
 ## Text input and output
 
 注意是没有分号的
@@ -174,6 +176,38 @@ ist元素也可以是另一个list
 s = ['python', 'java', ['asp', 'php'], 'scheme']
 print(len(s)) #输出4
 ```
+
+PYTHON 还支持切片功能，不用循环，直接获取 list 或 string 或 tuple 中某个范围内的元素.
+
+```python
+L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+print(L) 
+ 
+#before
+r = []
+n = 3
+for i in range(n):
+    r.append(L[i])
+print(r)
+
+print("-"*10)
+
+#now
+print(L[0:3])  #从索引0开始取，直到索引3为止，但不包括索引3
+print(L[:3])   #如果第一个索引是0，还可以省略
+print(L[1:3])  #从索引1开始，取出2个元素
+print(L[-2:])  #支持倒数切片
+print(L[-2:-1]) #同样不包括右边界
+print(L[:])         #只写[:]就可以原样复制一个list
+print(L[::2])#每2个取一个
+
+print("-"*10)
+
+print((0, 1, 2, 3, 4, 5)[:3]) #tuple也支持
+print('ABCDEFG'[:3]) #string也支持
+```
+
+
 
 ## Tuple
 
@@ -377,3 +411,5 @@ name: Bob age: 35 other: {'city': 'Beijing'}
 >>> person('Adam', 45, gender='M', job='Engineer')
 name: Adam age: 45 other: {'gender': 'M', 'job': 'Engineer'}
 ```
+
+
