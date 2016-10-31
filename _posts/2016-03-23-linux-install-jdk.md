@@ -6,8 +6,7 @@ tags:
 - LINUX
 - JAVA
 categories: LINUX
-blog: true
-
+excerpt: Linux 安装 JDK
 ---
 
 
