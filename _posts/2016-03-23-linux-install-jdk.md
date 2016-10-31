@@ -5,7 +5,7 @@ date: 2016-03-23
 tags:
 - LINUX
 - JAVA
-- categories: LINUX
+categories: LINUX
 blog: true
 
 ---
@@ -35,12 +35,12 @@ blog: true
 1. `vim /etc/profile`：编辑配置文件
 2. 在文件的最后面增加：
 
-	![jdk-enviroment](../assets/images/blogs/2016-03-23-jdk-enviroment.png)
+![jdk-enviroment](/assets/images/2016-03-23-jdk-enviroment.png)
 
 3. 保存后使用`source profile`使配置立即生效
 4. `java -v`查看是否成功配置
 	
-	![source-version](../assets/images/blogs/2016-03-23-source-version.png)
+![source-version](/assets/images/2016-03-23-source-version.png)
 
 ## Install rz
 
