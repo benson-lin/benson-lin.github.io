@@ -1,80 +1,159 @@
-# for local testing
-# main text of home
-name: Benson Lin
-bio: 'A Man who concentrates on software development '
+# This is the default format. 
+# For more see: http://jekyllrb.com/docs/permalinks/
+permalink: /:categories/:year/:month/:day/:title 
 
-# if it's an external image, update below for true
-external-image: false
-picture: '/assets/images/profile.png'
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+highlighter: pygments
 
-url: http://blog.bensonlin.me
-# url: http://blog.bensonlin.me
-# your url: http://zebinlin.github.io http://localhost:4000
+assets: /assets
+baseurl: http://psychology.bensonlin.me
 
-permalink: /:title/
-
-markdown: kramdown
-highlighter: rouge
-
-analytics-google: 'UA-MYANALYTICS'
-
-# if you don't want comments in your posts, set to false
-disqus: zebinlin
-
-# if you don't have any of social below, comment the line
-## facebook: myfacebook
-## twitter: mytwitter
-# google: mygoogle
-# instagram: myinstagram
-# pinterest: mypinterest
-# linkedin: mylinkedin
-## youtube: myyoutube
-## spotify: myspotify
-github: benson-lin
-## medium: medium
-email: l096101803@qq.com
-
-# do you want a larger site? change the option below
-# options: [normal, large] | default: normal
-# normal = 560px / large = 810px
-width: large
-
-# if you don't need pagination, comment the *paginate* configs below
+# pagination
 paginate: 10
-paginate_path: "post/:num/"
 
-# if you don't need projects, comment the *projects* configs below
-project: true
+# Markdown Processors
+markdown: redcarpet
+redcarpet:
+  extensions:
+    - hard_wrap
+    - no_intra_emphasis
+    - autolink
+    - strikethrough
+    - tables
+    - lax_spacing
+    - with_toc_data
+    
 
-# if you don't need "about" or "blog", comment them out below
-about: true
-blog: true
+title : psychology
+# tagline: A fresh looking and responsive theme for Jekyll
 
-blog-branch: '/post'
-project-branch: '/project'
-about-branch: '/about'
-# do you want to show the "read time" of the posts?
-read-time: true
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      type: "post"
 
-# do you want to show the "tags" inside the posts?
-show-tags: true
+##### Menu
+menu:
+  Home: /
+  Archives: /archives
+  About: /about
+## you can create `tags` and `categories` folders in `../source`.
+## And create a `index.md` file in each of them.
+## set `front-matter`as
+## layout: tags (or categories)
+## title: tags (or categories)
+## ---
 
-# related posts inside a post?
-related: true
+#### Widgets
+widgets: 
+- category
+- tag
+- links
+- douban
+- rss
+## provide seven widgets:category,tag,rss,archive,tagcloud,links,weibo,douban
 
-# do you want some animations?
-animation: true
 
-gems:
-  - jemoji
-  - jekyll-mentions
-  - jekyll-seo-tag
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-paginate
+#### RSS 
+rss: /atom.xml ## RSS address.
 
-jekyll-mentions:
-    base_url: https://github.com
+#### Image
+imglogo:
+  enable: true             ## display image logo true/false.
+  src: img/logo.png        ## `.svg` and `.png` are recommended,please put image into the theme folder `/jacman/source/img`.
+favicon: img/favicon.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/jacman/source/img`.     
+apple_icon: img/jacman.jpg ## size:114px*114px,please put image into the theme folder `/jacman/source/img`.
+author_img: img/author.jpg ## size:220px*220px.display author avatar picture.if don't want to display,please don't set this.
+banner_img: #img/banner.jpg ## size:1920px*200px+. Banner Picture
 
-exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, Rakefile, screen-shot.png, travis.sh]
+#### index post is expanding or not 
+index:
+  expand: true           ## default is unexpanding,so you can only see the short description of each post.
+  excerpt_link: Read More  
+
+close_aside: false  #close sidebar in post page if true
+mathjax: false      #enable mathjax if true
+
+#### Author information
+author:
+  name: benson-lin      ## e.g. wuchong Author name
+  intro_line1:  "Hello, welcome to psychology haven."    ## your introduction on the bottom of the page
+  intro_line2:  "We will learn psychology together in future."  ## the 2nd line
+  weibo:      ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
+  weibo_verifier:  ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
+  tsina:      ## e.g. 2176287895  Your weibo ID,It will be used in share button.
+  douban:     ## e.g. wuchong1014 or your id for https://www.douban.com/people/wuchong1014
+  zhihu:      ## e.g. jark  for http://www.zhihu.com/people/jark
+  email:      ## e.g. imjark@gmail.com
+  twitter:    ## e.g. jarkwu for https://twitter.com/jarkwu
+  github:     ## e.g. wuchong for https://github.com/wuchong
+  facebook:   ## e.g. imjark for https://facebook.com/imjark
+  linkedin:   ## e.g. wuchong1014 for https://www.linkedin.com/in/wuchong1014
+  google_plus:    ## e.g. "111190881341800841449" for https://plus.google.com/u/0/111190881341800841449, the "" is needed!
+  stackoverflow:  ## e.g. 3222790 for http://stackoverflow.com/users/3222790/jark
+## if you set them, the corresponding  share button will show on the footer
+
+#### Toc
+toc:
+  article: true   ## show contents in article.
+  aside: true     ## show contents in aside.
+## you can set both of the value to true of neither of them.
+## if you don't want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
+
+#### Links
+# links:
+#   心理学吧: http://tieba.baidu.com/f?kw=%D0%C4%C0%ED%D1%A7&fr=ala0&tpl=5
+#  Jark's Blog: http://wuchong.me
+
+
+
+#### Comment
+duoshuo_shortname:    ## e.g. wuchong   your duoshuo short name.
+disqus_shortname:     ## e.g. wuchong   your disqus short name.
+
+#### Share button
+jiathis:
+  enable: false ## if you use jiathis as your share tool,the built-in share tool won't be display.
+  id:    ## e.g. 1889330 your jiathis ID. 
+  tsina: ## e.g. 2176287895 Your weibo id,It will be used in share button.
+
+#### Analytics
+google_analytics:
+  enable: false
+  id:        ## e.g. UA-46321946-2 your google analytics ID.
+  site:      ## e.g. wuchong.me your google analytics site or set the value as auto.
+## You MUST upgrade to Universal Analytics first!
+## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN
+baidu_tongji:
+  enable: false
+  sitecode:  ## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code
+cnzz_tongji:
+  enable: false
+  siteid:    ## e.g. 1253575964 your cnzz tongji site id
+
+#### Miscellaneous
+fancybox: true        ## if you use gallery post or want use fancybox please set the value to true.
+totop: true           ## if you want to scroll to top in every post set the value to true
+
+
+#### Custom Search
+google_cse: 
+  enable: false
+  cx: 018294693190868310296:abnhpuysycw  ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.
+## https://www.google.com/cse/ 
+## To enable the custom search You must create a "search" folder in '/source' and a "index.md" file
+## set the 'front-matter' as
+## layout: search 
+## title: search
+## ---
+baidu_search:     ## http://zn.baidu.com/
+  enable: false
+  id:   ## e.g. "783281470518440642"  for your baidu search id
+  site: http://zhannei.baidu.com/cse/search  ## your can change to your site instead of the default site
+  
+tinysou_search:     ## http://tinysou.com/
+  enable: false
+  id:  ## e.g. "4ac092ad8d749fdc6293" for your tiny search id
