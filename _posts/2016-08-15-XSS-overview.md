@@ -5,7 +5,7 @@ date: 2016-08-15
 tags:
 - SECURITY
 categories: SECURITY
-excerpt: 安全专题: XSS攻击
+excerpt: 安全专题(XSS攻击)
 ---
 
 ## 一、什么是XSS？
