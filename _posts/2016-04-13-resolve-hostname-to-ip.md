@@ -8,7 +8,7 @@ categories: NETWORK
 excerpt: 域名解析成IP地址介绍
 ---
 
-## Summary
+## Introduction
 
 当我们输入一个url，比如为：http://www.163.com，把URL分割成几个部分：**协议、网络地址、资源路径**。
 
