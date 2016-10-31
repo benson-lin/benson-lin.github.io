@@ -2,10 +2,10 @@
 title: "Tencent Interview: Part Three"
 layout: post
 date: 2016-09-07
-permalink : /post/tencent-interview-part-three
-tag:
+tags:
 - INTERVIEW
-blog: true
+categories: INTERVIEW
+excerpt: 腾讯三面
 ---
 
 ## 应聘岗位

@@ -2,10 +2,11 @@
 title: "Http Cache"
 layout: post
 date: 2016-05-02
-permalink : /post/http-cache
-tag:
+tags:
 - HTTP
-blog: true
+- RFC
+categories: HTTP
+excerpt: HTTP协议缓存部分介绍，对应RFC2616文档
 ---
 
 # HTTP 缓存
@@ -13,7 +14,8 @@ blog: true
 ## 关键字
 
 - 命中 控制缓存 文档过期 使用期 过期时间 新鲜度 再验证 命中率
-- Cache-Control Exipres If-None-Match Etags 
+- Cache-Control Exipres 
+- If-None-Match Etags 
 
 ## 为什么需要缓存？
 

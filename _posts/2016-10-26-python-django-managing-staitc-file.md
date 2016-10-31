@@ -2,10 +2,10 @@
 title: "Managing Static Files | Django "
 layout: post
 date: 2016-10-26
-permalink : /post/python-django-managing-static-files
-tag:
+tags:
 - Python
-blog: true
+categories: Python
+excerpt: Python Django框架引用静态文件问题
 ---
 
 # Django 静态文件引用

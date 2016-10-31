@@ -2,10 +2,10 @@
 title: "Alibaba Interview (Java): Part Two"
 layout: post
 date: 2016-04-15
-permalink : /post/alibaba-interview-java-part-two
-tag:
+tags:
 - INTERVIEW
-blog: true
+categories: INTERVIEW
+excerpt: 阿里巴巴二面
 ---
 
 ## 应聘岗位

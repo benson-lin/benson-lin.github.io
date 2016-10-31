@@ -2,12 +2,13 @@
 title: "Resolve Hostname to IP"
 layout: post
 date: 2016-04-13
-permalink : /post/resolve-hostname-to-ip
-tag:
+tags:
 - NETWORK
-blog: true
+categories: NETWORK
+excerpt: 域名解析成IP地址介绍
 ---
 
+## 目录
 
 - [Local Resolution](#local-resolution)
   - [The Relationship Between Hosts and OS Cache](#the-relationship-between-hosts-and-os-cache)

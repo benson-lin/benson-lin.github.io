@@ -2,10 +2,10 @@
 title: "Python Basis 01"
 layout: post
 date: 2016-10-15
-permalink : /post/python-basis-01
-tag:
+tags:
 - Python
-blog: true
+categories: Python
+excerpt: Python基础语法介绍
 ---
 
 - Python是**解释性语言**，在运行python程序时解析程序行；相比C或C++，它们先进行编译，然后再运行

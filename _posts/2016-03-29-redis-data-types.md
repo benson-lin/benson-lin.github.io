@@ -2,11 +2,11 @@
 title: "Redis Data types"
 layout: post
 date: 2016-03-29
-permalink : /post/redis-data-types
 tag:
 - REDIS
 - JAVA
-blog: true
+categories: Java
+excerpt: Redis 数据类型介绍
 ---
 
 ## Data types Introduction

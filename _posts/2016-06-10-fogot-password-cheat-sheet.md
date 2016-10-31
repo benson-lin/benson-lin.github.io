@@ -2,10 +2,10 @@
 title: "Forgot Password Cheat Sheet"
 layout: post
 date: 2016-06-10
-permalink : /post/forgot-password-cheat-sheet
-tag:
+tags:
 - SECURITY
-blog: true
+categories: SECURITY
+excerpt: 安全专题: 忘记密码时要怎么做！
 ---
 
 在很多Web网站中，有一项功能是忘记密码，不同网站对忘记密码的策略有自己的一套方案。但是目前却缺少一个工业标准实现一个忘记密码功能，导致的问题就是有可能在某些流程中出现漏洞，被hacker盗取账号。
@@ -65,7 +65,7 @@ OWASP作为Web安全公认的组织，在[这里](https://www.owasp.org/index.ph
 
 ### 第1步：标识凭据
 
-![](img/2016-06-10-forget-password-step1.png)
+![](/assets/images/2016-06-10-forget-password-step1.png)
 
 使用手机号或用户名作为标识
 里面需要添加了验证码，是为了有人防止恶意尝试电子邮箱或手机号，进入第2步。
@@ -73,22 +73,22 @@ OWASP作为Web安全公认的组织，在[这里](https://www.owasp.org/index.ph
 
 ## 第2步：填写安全问题
 
-![](img/2016-06-10-forget-password-step2-1.png)
+![](/assets/images/2016-06-10-forget-password-step2-1.png)
 
 可以看到有 验证短信+验证身份证件 和 验证短息+回答安全保护问题，当然通过人工服务就没什么说了,只要是自己账号，基本上人工是可以解决的，现在看看第二种方式，即验证短信+回答安全保护问题
 
-![](img/2016-06-10-forget-password-step2-2.png)
+![](/assets/images/2016-06-10-forget-password-step2-2.png)
 
 可以看到需要先发送验证吗，验证身份信息，其实都是为了防止，这里就是第三步的内容
 短信中提示30分钟内输入，而安全保护问题也是问我的出生地，可能是我之前填写的，我自己也忘了，然后修改了原来的问题，修改成3个问题，用来验证它是不是随机选择问题，后来发现居然你问多少个问题就要回答多少个问题，挺安全的 TAT。
 
-![](img/2016-06-10-forget-password-step2-3.png)
+![](/assets/images/2016-06-10-forget-password-step2-3.png)
 
 其中的验证码是第3步的质疑令牌
 
 
 题外话：从重置密码中可以看到可以使用身份证重置，我点进去看了一下，就我而言，不是很认同这种重置方式，虽然有通过收手机验证码方式，但是身份证号泄露还是不难的，也就是只有手机这个方面能够有效防御，换句话说，就是给入侵者减少了一道防御，不过就方便而言确实方便很多，当然，安全和方便总是矛盾的。
-![](img/2016-06-10-forget-password-step2-4.png)
+![](/assets/images/2016-06-10-forget-password-step2-4.png)
 
 
 ## 第3步：发送质疑令牌
@@ -105,15 +105,15 @@ OWASP作为Web安全公认的组织，在[这里](https://www.owasp.org/index.ph
 
 需要在当前会话中完成，因为有事中途走开了，然后我刷新步骤3的页面，发现这样子了
 
-![](img/2016-06-10-forget-password-step4-1.png)
+![](/assets/images/2016-06-10-forget-password-step4-1.png)
 
 接着我重复前面的步骤，回到了填写安全保护问题的步骤，填写了正确的安全保护问题后，进入了重置密码阶段
 
-![](img/2016-06-10-forget-password-step4-2.png)
+![](/assets/images/2016-06-10-forget-password-step4-2.png)
 
 
 输入新的密码确定就可以了，当然修改密码后token肯定就销毁了
-![](img/2016-06-10-forget-password-step4-3.png)
+![](/assets/images/2016-06-10-forget-password-step4-3.png)
 
 
 题外话：当我输入的密码和之前的相同时，提示我"新登录密码必须和当前登录密码不同"，在一次保证了安全，有意思，大家可以试一下

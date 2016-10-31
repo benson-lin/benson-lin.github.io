@@ -2,10 +2,11 @@
 title: "Http Entity & Encoding"
 layout: post
 date: 2016-05-29
-permalink : /post/http-entity-and-encoding
-tag:
+tags:
 - HTTP
-blog: true
+- RFC
+categories: HTTP
+excerpt: HTTP协议编码部分介绍，对应RFC2616文档
 ---
 
 
@@ -218,7 +219,7 @@ HTTP规范中目前只定义了一种传输编码，就是分块编码(chunked)
 
 具体的分块编码是怎样的，查看下面的图：
 
-![](img/2016-05-29-chunked-encoding.png)
+![](/assets/images/2016-05-29-chunked-encoding.png)
 
 简单的说，就是每个分块包含一个长度值和这个分块的数据。长度用十六进制形式表示，并用CRLF与数据分隔开。分块中数据的大小以字节计算，不包括长度值与数据间的CRLF和分块结束的CRLF序列
 
@@ -228,7 +229,7 @@ HTTP规范中目前只定义了一种传输编码，就是分块编码(chunked)
 
 ### 内容编码和传输编码的结合
 
-![](img/2015-05-29-transfer-encoding-and-content-encoding.png)
+![](/assets/images/2015-05-29-transfer-encoding-and-content-encoding.png)
 
 ### 传输编码的规则
 
@@ -243,7 +244,7 @@ HTTP规范中目前只定义了一种传输编码，就是分块编码(chunked)
 
 ## Part 7: Content-Range:范围请求
 
-在[Http Cache](https://zebinlin.github.io/blogs/http-cache)中已经了解了客户端如何要求服务器只在客户端的资源副本失效时才发送副本，但是还可以进一步的细化：只请求文档的某一部分或者说是某一个范围。
+在上一篇博文中已经了解了客户端如何要求服务器只在客户端的资源副本失效时才发送副本，但是还可以进一步的细化：只请求文档的某一部分或者说是某一个范围。
 
 这也是断点续传的原理所在：比如下载一个很大的电影，但是下载到一半，网络崩溃了，连接中断，如果要重新再来就不好了，所以通过使用Range和Content-Range实现下载某个范围内的数据。Range首部也在P2P（Peer-to-Peer）中得到广泛的应用，从不同的对等实体中同时下载多媒体文件的不同部分。
 
@@ -273,7 +274,7 @@ Accept-Range: bytes
 
 范围请求的响应代码是206，而不是200
 
-![](img/2016-05-29-content-range.png)
+![](/assets/images/2016-05-29-content-range.png)
 
 
 ## Part 8: 保证实体最新 & 差异编码
@@ -282,8 +283,6 @@ Accept-Range: bytes
 
 差异编码就是希望在实体有一点点的改变就立即返回新的实体，也就是Etags和If-None-Match涉及新鲜度的检测(或If-Modified-Since和Last-Modified)
 
-
-这个在[Http Cache](https://zebinlin.github.io/blogs/http-cache)已经描述了。
 
 
 

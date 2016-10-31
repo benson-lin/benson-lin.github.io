@@ -2,10 +2,10 @@
 title: "Tencent Interview: Part One"
 layout: post
 date: 2016-09-07
-permalink : /post/tencent-interview-part-one
-tag:
+tags:
 - INTERVIEW
-blog: true
+categories: INTERVIEW
+excerpt: 腾讯一面
 ---
 
 ## 应聘岗位

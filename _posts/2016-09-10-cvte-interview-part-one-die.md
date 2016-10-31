@@ -2,10 +2,10 @@
 title: "CVTE Interview: Part One"
 layout: post
 date: 2016-09-10
-permalink : /post/cvte-interview-part-one
-tag:
+tags:
 - INTERVIEW
-blog: true
+categories: INTERVIEW
+excerpt: CVTE一面
 ---
 
 ## 应聘岗位

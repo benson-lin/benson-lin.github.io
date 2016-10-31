@@ -2,10 +2,10 @@
 title: "Kingdee Interview: Part One & Part Two"
 layout: post
 date: 2016-09-24
-permalink : /post/kingdee-interview-part-one-and-two
-tag:
+tags:
 - INTERVIEW
-blog: true
+categories: INTERVIEW
+excerpt: 金蝶一面和二面
 ---
 
 ## 应聘岗位

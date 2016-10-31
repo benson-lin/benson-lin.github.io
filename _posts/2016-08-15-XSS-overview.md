@@ -2,10 +2,10 @@
 title: "XSS Overview"
 layout: post
 date: 2016-08-15
-permalink : /post/xss-overview
-tag:
+tags:
 - SECURITY
-blog: true
+categories: SECURITY
+excerpt: 安全专题: XSS攻击！
 ---
 
 ## 一、什么是XSS？

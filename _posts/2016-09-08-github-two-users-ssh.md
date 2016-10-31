@@ -2,10 +2,11 @@
 title: "Github Multiple SSH Keys Settings"
 layout: post
 date: 2016-09-08
-permalink : /post/github-multiple-ssh-keys-settings
-tag:
+tags:
 - Other
-blog: true
+- Github
+categories: Other
+excerpt: Github 如何在一台电脑使用多个账号提交代码！
 ---
 
 ## 生成两个用户的ssh key
@@ -34,7 +35,7 @@ $ ssh-keygen -t rsa -C "2205763695@qq.com"
 
 注意不要一路回车，要给这个文件起一个名字， 比如叫 2205763695, 会在 ~/.ssh/ 目录下生成 2205763695_id_rsa 和 2205763695_id_rsa.pub 两个文件
 
-![](img/2016-09-08-username-id-rsa.png)
+![](/assets/images/2016-09-08-username-id-rsa.png)
 
 然后分别打开pub文件拷贝到对应GitHub后台。这个步骤流程就不详说了。
 
@@ -81,7 +82,7 @@ $ ssh -T git@github.com
 
 注意：Hi后面是真正返回的github账户的用户名，而ssh命令中输入的是别名，只是这里恰好相同而已
 
-![](img/2016-09-08-result.png)
+![](/assets/images/2016-09-08-result.png)
 
 
 ## 应用 

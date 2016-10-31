@@ -2,10 +2,10 @@
 title: "Tencent Interview: Part Two"
 layout: post
 date: 2016-09-07
-permalink : /post/tencent-interview-part-two
-tag:
+tags:
 - INTERVIEW
-blog: true
+categories: INTERVIEW
+excerpt: 腾讯二面
 ---
 
 ## 应聘岗位

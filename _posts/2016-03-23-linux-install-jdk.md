@@ -9,7 +9,6 @@ categories: LINUX
 excerpt: Linux 安装 JDK
 ---
 
-
 ## Step One: 下载JDK
 
 官网下载地址：http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
