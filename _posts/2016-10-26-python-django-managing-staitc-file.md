@@ -16,7 +16,7 @@ excerpt: Python Django框架引用静态文件问题
 
 如下是项目文件目录结构例子
 
-![](img/2016-10-26-python-django-static-file-01.png)
+![](/assets/images/2016-10-26-python-django-static-file-01.png)
 
 其中 index.html 引入了 test.js 作为测试
 
@@ -38,7 +38,7 @@ excerpt: Python Django框架引用静态文件问题
 
 可以看到访问成功，响应码是200
 
-![](img/2016-10-26-python-django-static-file-02.png)
+![](/assets/images/2016-10-26-python-django-static-file-02.png)
 
 在服务器端的日志也看到`[26/Oct/2016 17:36:13] "GET /static/js/test.js HTTP/1.1" 200 0`
 
@@ -46,7 +46,7 @@ excerpt: Python Django框架引用静态文件问题
 
 Django讲述了另外两种方法，下面是部分截图。原链接在[这里](https://docs.djangoproject.com/en/1.10/howto/static-files/)
 
-![](img/2016-10-26-python-django-static-file-04.png)
+![](/assets/images/2016-10-26-python-django-static-file-04.png)
 
 ## 静态文件的一般处理方式
 
@@ -62,7 +62,7 @@ Django讲述了另外两种方法，下面是部分截图。原链接在[这里]
 
 我们在settings.py中加入`STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')`，然后运行`python manage.py collectstatic`命令，刷新文件夹发现在项目根目录下生成了一个collected_static的文件夹，以前放在app下static中的静态文件全部拷贝到这个文件夹中。最后将这些文件放到服务器即可。（这里只是为了举例，所以放到app目录下，实际上`STATIC_ROOT`一般设置为绝对路径或者说部署的路径，比如`/var/www/example.com/static/`）
 
-![](img/2016-10-26-python-django-static-file-03.png)
+![](/assets/images/2016-10-26-python-django-static-file-03.png)
 
 官网[这里](https://docs.djangoproject.com/en/1.10/howto/static-files/#deployment)也简单的描述了该功能
 
