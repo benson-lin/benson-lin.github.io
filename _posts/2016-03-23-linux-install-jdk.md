@@ -2,10 +2,10 @@
 title: "Linux Install JDK"
 layout: post
 date: 2016-03-23
-permalink : /post/linux-install-jdk
-tag:
+tags:
 - LINUX
 - JAVA
+- categories: LINUX
 blog: true
 
 ---
@@ -15,7 +15,7 @@ blog: true
 
 官网下载地址：http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
-![download-jdk](../assets/images/blogs/2016-03-23-download-jdk.png)
+![download-jdk](/assets/images/2016-03-23-download-jdk.png)
 
 可以根据自己的系统下载对应的JDK版本。
 
@@ -27,7 +27,7 @@ blog: true
 1. `mkdir jdk`：在`/usr/lib`目录下新建文件夹`jdk`
 2. 将文件上传到该目录下，使用rz命令。([如何安装rz](#install-rz))
 3. `cd jdk`，使用`tar -zxvf jdk-8u73-linux-x64.gz`解压，可以看到文件列表如下：
-![jdk-dir](../assets/images/blogs/2016-03-23-jdk-dir.png)
+![jdk-dir](/assets/images/2016-03-23-jdk-dir.png)
 
 
 ## Step Three: 配置环境变量
