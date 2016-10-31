@@ -8,16 +8,7 @@ categories: NETWORK
 excerpt: 域名解析成IP地址介绍
 ---
 
-## 目录
-
-- [Local Resolution](#local-resolution)
-  - [The Relationship Between Hosts and OS Cache](#the-relationship-between-hosts-and-os-cache)
-- [DNS Resolution](#dns-resolution)
-  - [Authoritative](#authoritative)
-    - [Example](#example)
-  - [Forwarder](#forwarder)
-  - [Iterative Queries and Recursive Queries](#iterative-queries-and-recursive-queries)
-
+## Summary
 
 当我们输入一个url，比如为：http://www.163.com，把URL分割成几个部分：**协议、网络地址、资源路径**。
 

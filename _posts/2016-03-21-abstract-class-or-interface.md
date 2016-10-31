@@ -2,13 +2,11 @@
 title: "Abstract Class or Interface"
 layout: post
 date: 2016-03-21
-permalink : /post/abstract-class-or-interface
-tag:
+tags:
 - JAVA
-blog: true
+categories: JAVA
+excerpt: Java抽象类和接口的区别
 ---
-
-## 区别
 
 ### 语法层面上的区别
 
