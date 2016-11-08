@@ -44,9 +44,6 @@ excerpt: Python Django框架引用静态文件问题
 
 如果希望修改静态文件目录，只需要修改`STATIC_URL`的值即可
 
-Django讲述了另外两种方法，下面是部分截图。原链接在[这里](https://docs.djangoproject.com/en/1.10/howto/static-files/)
-
-![](/assets/images/2016-10-26-python-django-static-file-04.png)
 
 ## 静态文件的一般处理方式
 

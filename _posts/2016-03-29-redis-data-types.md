@@ -5,7 +5,7 @@ date: 2016-03-29
 tag:
 - REDIS
 - JAVA
-categories: Java
+categories: JAVA
 excerpt: Redis 数据类型介绍
 ---
 
