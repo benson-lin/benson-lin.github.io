@@ -43,7 +43,7 @@ function test(){
 对**函数**而言，比如下面这段代码是能够成功调用的，因为是函数声明方式的。
 
 
-```
+```js
 function test(){ 
 	foo(); 
 	function foo(){ 
