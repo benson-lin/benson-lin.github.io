@@ -4,7 +4,7 @@ layout: post
 date: 2016-12-17
 tag:
 - Nginx
-categories: Nginx
+categories: NGINX
 blog: true
 ---
 

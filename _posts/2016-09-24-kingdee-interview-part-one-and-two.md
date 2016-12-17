@@ -3,7 +3,7 @@ title: "Kingdee Interview: Part One & Part Two"
 layout: post
 date: 2016-09-24
 tags:
-- INTERVIEW
+- Interview
 categories: INTERVIEW
 excerpt: 金蝶一面和二面
 ---

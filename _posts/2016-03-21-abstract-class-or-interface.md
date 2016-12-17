@@ -3,7 +3,7 @@ title: "Abstract Class or Interface"
 layout: post
 date: 2016-03-21
 tags:
-- JAVA
+- Java
 categories: JAVA
 excerpt: Java抽象类和接口的区别
 ---

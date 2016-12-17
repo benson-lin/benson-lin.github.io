@@ -3,9 +3,9 @@ title: "Linux Install JDK"
 layout: post
 date: 2016-03-23
 tags:
-- LINUX
-- JAVA
-categories: LINUX
+- Linux
+- Java
+categories: Java
 excerpt: Linux 安装 JDK
 ---
 

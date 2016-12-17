@@ -4,7 +4,7 @@ layout: post
 date: 2016-10-26
 tags:
 - Python
-categories: Python
+categories: PYTHON
 excerpt: Python Django框架引用静态文件问题
 ---
 

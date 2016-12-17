@@ -3,7 +3,7 @@ title: "Resolve Hostname to IP"
 layout: post
 date: 2016-04-13
 tags:
-- NETWORK
+- Network
 categories: NETWORK
 excerpt: 域名解析成IP地址介绍
 ---

@@ -4,6 +4,7 @@ layout: post
 date: 2016-11-08
 tag:
 - Python
+categories: PYTHON
 blog: true
 excerpt: Python可以支持使用加号、逗号、直接连接、字符串格式化和join方式连接字符串
 ---

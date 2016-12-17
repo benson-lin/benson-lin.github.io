@@ -3,7 +3,7 @@ title: "CVTE Interview: Part One"
 layout: post
 date: 2016-09-10
 tags:
-- INTERVIEW
+- Interview
 categories: INTERVIEW
 excerpt: CVTE一面
 ---

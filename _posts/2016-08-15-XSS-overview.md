@@ -3,7 +3,7 @@ title: "XSS Overview"
 layout: post
 date: 2016-08-15
 tags:
-- SECURITY
+- Security
 categories: SECURITY
 excerpt: 安全专题(XSS攻击)
 ---

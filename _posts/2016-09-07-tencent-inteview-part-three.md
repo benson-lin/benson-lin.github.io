@@ -3,7 +3,7 @@ title: "Tencent Interview: Part Three"
 layout: post
 date: 2016-09-07
 tags:
-- INTERVIEW
+- Interview
 categories: INTERVIEW
 excerpt: 腾讯三面
 ---

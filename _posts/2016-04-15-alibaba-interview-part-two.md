@@ -3,7 +3,7 @@ title: "Alibaba Interview (Java): Part Two"
 layout: post
 date: 2016-04-15
 tags:
-- INTERVIEW
+- Interview
 categories: INTERVIEW
 excerpt: 阿里巴巴二面
 ---

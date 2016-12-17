@@ -4,7 +4,7 @@ layout: post
 date: 2016-11-29
 tag:
 - JavaScript
-categories: JavaScript
+categories: JAVASCRIPT
 blog: true
 excerpt: JavaScript Scoping and Hoisting。JavaScript变量提升问题，变量提升使JavaScript与其他编程语言有很大的不同。
 ---

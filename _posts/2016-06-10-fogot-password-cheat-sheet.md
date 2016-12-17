@@ -3,7 +3,7 @@ title: "Forgot Password Cheat Sheet"
 layout: post
 date: 2016-06-10
 tags:
-- SECURITY
+- Security
 categories: SECURITY
 excerpt: 安全专题(忘记密码)
 ---

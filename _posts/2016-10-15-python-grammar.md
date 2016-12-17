@@ -4,7 +4,7 @@ layout: post
 date: 2016-10-15
 tags:
 - Python
-categories: Python
+categories: PYTHON
 excerpt: Python基础语法介绍
 ---
 
