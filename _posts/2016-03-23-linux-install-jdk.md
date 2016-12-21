@@ -5,7 +5,7 @@ date: 2016-03-23
 tags:
 - Linux
 - Java
-categories: Java
+categories: JAVA
 excerpt: Linux 安装 JDK
 ---
 
