@@ -1,11 +1,12 @@
 ---
-title: "Nginx location配置"
+title: "Nginx upstream 配置负载均衡"
 layout: post
 date: 2016-12-17
 tag:
 - Nginx
 categories: NGINX
 blog: true
+excerpt: 本博文通过在本地启动三台应用服务器，两台tomcat和一台apache服务器作为nginx服务器的分发机器。意在讲清upstream的简单使用。
 ---
 
 # Nginx upstream 配置负载均衡
