@@ -4,7 +4,7 @@ layout: post
 date: 2016-09-08
 tags:
 - Other
-- Github
+- Git
 categories: OTHER
 excerpt: Github 如何在一台电脑使用多个账号提交代码！
 ---
