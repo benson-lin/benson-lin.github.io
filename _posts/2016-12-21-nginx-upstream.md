@@ -1,7 +1,7 @@
 ---
 title: "Nginx upstream 配置负载均衡"
 layout: post
-date: 2016-12-17
+date: 2016-12-21
 tag:
 - Nginx
 categories: NGINX
