@@ -1,15 +1,15 @@
 ---
-title: "CSS备忘"
+title: "CSS备忘--选择器"
 layout: post
 date: 2017-02-06
 tags:
 - CSS
 categories: CSS
 blog: true
-excerpt: CSS备忘
+excerpt: CSS备忘--选择器
 ---
 
-# CSS备忘
+# CSS备忘--选择器
 
 ## 选择器
 
