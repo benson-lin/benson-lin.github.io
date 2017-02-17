@@ -13,6 +13,7 @@ excerpt: 本博文通过在本地启动三台应用服务器，两台tomcat和�
 
 在使用nginx配置rewrite中经常会遇到有的地方用last并不能工作，换成break就可以，其中的原理是对于根目录的理解有所区别，按我的测试结果大致是这样的。
 
+```nginx
 location /   
 {    
     proxy_pass http://test;    
@@ -20,6 +21,8 @@ location /
     root /home/html;    
     rewrite "^/a/(.*)\.html$" /1.html last;    
 }  
+```
+
 在location / { 配置里：
 1、使用root指定源：使用last和break都可以
 2、使用proxy_pass指定源：使用last和break都可以
@@ -30,6 +33,7 @@ location /
 3、使用alias指定源：必须使用last
 其中区别主要在proxy_pass这个标签上，再看看几个测试结果：
 
+```nginx
 location /    
 {    
     root /home/html;    
@@ -40,8 +44,11 @@ location /a/
     proxy_pass http://test;    
     rewrite "^/a/(.*)\.html$" /1.html last;    
 }  
+```
+
 在这段配置里，使用last访问是可以访问到东西的，不过，它出来的结果是：/home/html/1.html；可我需要的是http://test/1.html？使用break就可以了。
 
+```nginx
 location /   
 {    
     root /home/html;   
@@ -52,6 +59,8 @@ location /a/
     proxy_pass http://test;    
     rewrite "^/a/(.*)\.html$" /a/1.html last;   
 }  
+```
+
 在这段配置里，返回错误，因为last会重新发起请求匹配，所以造成了一个死循环，使用break就可以访问到http://test/a/1.html。
 所以，使用last会对server标签重新发起请求，而break就直接使用当前的location中的数据源来访问，要视情况加以使用。一般在非根的location中配置rewrite，都是用的break；而根的location使用last比较好，因为如果配置了fastcgi或代理访问jsp文件的话，在根location下用break是访问不到。测试到rewrite有问题的时候，也不妨把这两者换换试试。
 至于使用alias时为什么必须用last，估计是nginx本身就限定了的，怎么尝试break都不能成功。
