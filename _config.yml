@@ -6,7 +6,7 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 highlighter: pygments
 
 assets: /assets
-baseurl:  
+baseurl:  http://benson-lin.github.io
 
 # pagination
 paginate: 10
