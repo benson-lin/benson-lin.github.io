@@ -12,7 +12,7 @@ excerpt: Git 分支创建，合并删除，冲突解决等
 
 # Git 分支相关
 
-- 创建分支：git branch <name>
+- 创建分支：git branch <name>; git checkout -b myfeature develop: 基于develop创建分支
 - 查看分支：git branch
 - 切换分支：git checkout <name>
 - 合并某分支到当前分支：git merge <name>
