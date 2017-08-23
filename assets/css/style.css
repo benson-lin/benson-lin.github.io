@@ -2010,7 +2010,7 @@ footer {
 	border:1px solid #ccc;
 }
 .article-content pre code {
-	color:#333;
+	/*color:#333;*/
 	background:none;
 	text-shadow:none;
 	padding:0
