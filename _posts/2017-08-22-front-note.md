@@ -1,0 +1,55 @@
+---
+title: "Javascript 事件event"
+layout: post
+date: 2017-08-22
+tags:
+- JAVASCRIPT
+categories: JAVASCRIPT
+blog: true
+---
+
+## 事件处理程序
+
+1. HTML 事件处理程序：如在btn标签上直接添加 onclick 事件
+2. DOM0 级事件处理程序，如下面的1，获取标签后添加 on... 事件，跨浏览器优势。
+3. DOM2 级事件处理程序，如下面的2，通过 addEventListener 添加事件
+4. IE 事件处理程序，通过 attachEvent 添加事件
+
+
+### onclick 和 btn.addEventListener('click',  { /* do stuff here*/ }) 区别
+
+```js
+//1
+var h = document.getElementById('a');
+h.onclick = donothing1;
+h.onclick = donothing2;
+
+//2
+h.addEventListener('click', donothing3);
+h.addEventListener('click', donothing4);
+```
+
+- 新的onclick会覆盖原来已存在的onclick事件，而 addEventListener 只会添加；
+- IE9以下（不包括IE9）不支持addEventListener，需要改为attachEvent('onclick', function() { /* do stuff here*/ });而onclick任何浏览器都可以
+- addEventListener 只能用 removeEventListener 移除 (detachEvent)，且是函数也必须相同，或者说成函数引用一定要相同，写成一样不代表就是同一个函数。
+
+```js
+	var btn = document.getElementById(“myBtn”);
+	btn.addEventListener(“click”, function(){//this指向btn，attachEvent 的this却是指向window
+		alert(this.id);
+	}, false);
+	//other code here
+	btn.removeEventListener(“click”, function(){ //won’t work!不发挥作用
+		alert(this.id);
+	}, false);
+	
+	//要像下面这样子才行
+	var btn = document.getElementById(“myBtn”);
+	var handler = function(){
+		alert(this.id);
+	};
+	btn.addEventListener(“click”, handler, false);
+	//other code here
+	btn.removeEventListener(“click”, handler, false); //works!
+```
+
