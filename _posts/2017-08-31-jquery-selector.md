@@ -3,7 +3,7 @@ title: "Jquery选择器"
 layout: post
 date: 2017-08-31
 tags:
-- JAVASCRIPT
+- JavaScript
 categories: JAVASCRIPT
 blog: true
 excerpt: 找父节点，兄弟节点等

@@ -3,7 +3,7 @@ title: "js双击复制"
 layout: post
 date: 2017-07-17
 tags:
-- JAVASCRIPT
+- JavaScript
 categories: JAVASCRIPT
 blog: true
 excerpt: js双击复制
