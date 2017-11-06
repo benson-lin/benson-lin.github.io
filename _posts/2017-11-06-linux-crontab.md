@@ -60,14 +60,14 @@ command：要执行的命令，可以是系统命令，也可以是自己编写�
 
 **在以上各个字段中，还可以使用以下特殊字符：**
 
-星号（*）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。
-逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”
-中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”
-正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。
+`星号（*）`：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。
+`逗号（,）`：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”
+`中杠（-）`：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”
+`正斜线（/）`：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如*/10，如果用在minute字段，表示每十分钟执行一次。
 
 
 
-## 二、crontab服务
+## 二、crond服务
 
 - 安装crontab：`yum install crontabs`
 - 服务操作说明：
@@ -125,37 +125,45 @@ EDITOR=vi; export EDITOR
 
 #### 2). 列出crontab文件
    为了列出crontab文件，可以用：
-    	$ crontab -l
-    	0,15,30,45,18-06 * * * /bin/echo `date` > dev/tty1
-你将会看到和上面类似的内容。可以使用这种方法在$ H O M E目录中对crontab文件做一备份：
-    	$ crontab -l > $HOME/mycron
-    这样，一旦不小心误删了crontab文件，可以用上一节所讲述的方法迅速恢复。
+   
+```bash   	
+$ crontab -l
+0,15,30,45,18-06 * * * /bin/echo `date` > dev/tty1
+```
+		
+你将会看到和上面类似的内容。可以使用这种方法在$ H O M E目录中对crontab文件做一备份：`$ crontab -l > $HOME/mycron`。这样，一旦不小心误删了crontab文件，可以用上一节所讲述的方法迅速恢复。
 	
 #### 3). 编辑crontab文件
-   如果希望添加、删除或编辑crontab文件中的条目，而E D I TO R环境变量又设置为v i，那么就可以用v i来编辑crontab文件，相应的命令为：
-    	$ crontab -e
+   如果希望添加、删除或编辑crontab文件中的条目，而EDITOR环境变量又设置为vi，那么就可以用vi来编辑crontab文件，相应的命令为：
+    	`$ crontab -e`
 可以像使用v i编辑其他任何文件那样修改crontab文件并退出。如果修改了某些条目或添加了新的条目，那么在保存该文件时， c r o n会对其进行必要的完整性检查。如果其中的某个域出现了超出允许范围的值，它会提示你。
 我们在编辑crontab文件时，没准会加入新的条目。例如，加入下面的一条：
-   	# DT:delete core files,at 3.30am on 1,7,14,21,26,26 days of each month
+
+```bash
+# DT:delete core files,at 3.30am on 1,7,14,21,26,26 days of each month
     	30 3 1,7,14,21,26 * * /bin/find -name "core' -exec rm {} \;
+```
+		
 现在保存并退出。最好在crontab文件的每一个条目之上加入一条注释，这样就可以知道它的功能、运行时间，更为重要的是，知道这是哪位用户的作业。
 现在让我们使用前面讲过的crontab -l命令列出它的全部信息：
+
+```bash
    	$ crontab -l 
    	# (crondave installed on Tue May 4 13:07:43 1999)
    	# DT:ech the date to the console every 30 minites
   	0,15,30,45 18-06 * * * /bin/echo `date` > /dev/tty1
    	# DT:delete core files,at 3.30am on 1,7,14,21,26,26 days of each month
    	30 3 1,7,14,21,26 * * /bin/find -name "core' -exec rm {} \;
+```
 
 #### 4). 删除crontab文件
 
-要删除crontab文件，可以用：
-   	$ crontab -r
+要删除crontab文件，可以用：`$ crontab -r`
 	
 #### 5). 恢复丢失的crontab文件
 
 如果不小心误删了crontab文件，假设你在自己的$ H O M E目录下还有一个备份，那么可以将其拷贝到/var/spool/cron/<username>，其中<username>是用户名。如果由于权限问题无法完成拷贝，可以用：
-    	$ crontab <filename>
+    	`$ crontab <filename>`
     其中，<filename>是你在$ H O M E目录中副本的文件名。
 我建议你在自己的$ H O M E目录中保存一个该文件的副本。我就有过类似的经历，有数次误删了crontab文件（因为r键紧挨在e键的右边）。这就是为什么有些系统文档建议不要直接编辑crontab文件，而是编辑该文件的一个副本，然后重新提交新的文件。
 有些crontab的变体有些怪异，所以在使用crontab命令时要格外小心。如果遗漏了任何选项，crontab可能会打开一个空文件，或者看起来像是个空文件。这时敲delete键退出，不要按<Ctrl-D>，否则你将丢失crontab文件。
