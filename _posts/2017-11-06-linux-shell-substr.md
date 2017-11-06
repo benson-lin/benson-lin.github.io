@@ -74,9 +74,9 @@ Linux 的字符串截取很有用。有八种方法。
 ## 总结
 
 ```bash
-${varible##*string} 从左向右截取最后一个string后的字符串
-${varible#*string}从左向右截取第一个string后的字符串
-${varible%%string*}从右向左截取最后一个string后的字符串
-${varible%string*}从右向左截取第一个string后的字符串
+${varible##*string} 从左向右截取最后一个string后的字符串；保留右边
+${varible#*string}从左向右截取第一个string后的字符串；保留右边
+${varible%%string*}从右向左截取最后一个string后的字符串；保留左边
+${varible%string*}从右向左截取第一个string后的字符串；保留左边
 “*”只是一个通配符可以不要
 ```
