@@ -42,7 +42,7 @@ function getProvince(){
 - 使用前端模板加入省份：好处是不用在每次调用函数时都传入省份参数
 - 使用js加入省份数据
 
-```php
+```js
 <!-- html代码如下 -->
 <div class="form-group">
 	<label class="control-label col-sm-3"><span class="text-danger">*</span>网关物理地址：</label>
@@ -51,7 +51,7 @@ function getProvince(){
 		 <option value=""></option>
 		 @{{ each province as value}}
 				<option value="@{{value.Id}}">
-					@{{value.Mc}}
+					@{{value.Mc}}`
 				</option>
 		 @{{/each}}
 		</select>
