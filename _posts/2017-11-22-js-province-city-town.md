@@ -43,17 +43,17 @@ function getProvince(){
 - 使用js加入省份数据
 
 ```js
-<!-- html代码如下 -->
+<!-- html代码如下-->
 <div class="form-group">
 	<label class="control-label col-sm-3"><span class="text-danger">*</span>网关物理地址：</label>
 	<div class="col-sm-8">
 		<select id="new-gateway-province">
 		 <option value=""></option>
-		 @\{{ each province as value}}
-				<option value="@\{{value.Id}}">
-					@\{{value.Mc}}
+		 ${each province as value}
+				<option value="${value.Id}">
+					${value.Mc}
 				</option>
-		 @\{{/each}}
+		 ${/each}
 		</select>
 		<select id="new-gateway-city">
 		</select>
