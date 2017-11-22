@@ -49,11 +49,11 @@ function getProvince(){
 	<div class="col-sm-8">
 		<select id="new-gateway-province">
 		 <option value=""></option>
-		 @{{ each province as value}}
-				<option value="@{{value.Id}}">
-					@{{value.Mc}}`
+		 @\{{ each province as value}}
+				<option value="@\{{value.Id}}">
+					@\{{value.Mc}}
 				</option>
-		 @{{/each}}
+		 @\{{/each}}
 		</select>
 		<select id="new-gateway-city">
 		</select>
