@@ -74,6 +74,12 @@ function getProvince(){
  */				
 provinceCityTownChange = function(provinceDom, cityDom, townDom, provinceCode, cityCode, townCode){
  	
+	
+    //如果是修改的情况，也就是最后三个参数不为空的情况下，
+	//确保只在第一次触发change事件时拿原来的值查找市或者区并将原来的值选中
+	//其余情况都将拿第一个去查找
+	var provinceFlag = true;
+	var cityFlag = true;
 	provinceDom.change(function(){
 		townDom.empty();
 		cityDom.empty();
@@ -82,7 +88,7 @@ provinceCityTownChange = function(provinceDom, cityDom, townDom, provinceCode, c
 		}
 		$.ajax({
 	        url:'/beian/ip/getAllCities',
-            data: {code: $(this).val()},
+            data: {code: $(this).val(),accountType: $('select[name=accountType]').val()},
 	        dataType: 'json',
 	        method: 'GET',
 	    }).done(function(result){
@@ -95,8 +101,11 @@ provinceCityTownChange = function(provinceDom, cityDom, townDom, provinceCode, c
 				cityOption += '<option value="'+value.Id+'">'+value.Mc+'</option>'
 			});
 			cityDom.append(cityOption);
-			if (cityCode != undefined) {
+			//是修改且是第一次执行，触发"找原城市的所有镇列表"事件，
+			//其他情况都拿第一个城市获取对应镇区列表
+			if (cityCode != undefined && provinceFlag) {
 				cityDom.val(cityCode).trigger('change');
+				provinceFlag = false;//执行一次之后将不进入此if语句，都将进入else
 			} else {
 				cityDom.val(city[0].Id).trigger('change');
 			}
@@ -110,7 +119,7 @@ provinceCityTownChange = function(provinceDom, cityDom, townDom, provinceCode, c
 		townDom.empty();
 		$.ajax({
 		        url:'/beian/ip/getAllTowns',
-	            data: {code: $(this).val()},
+	            data: {code: $(this).val(), accountType: $('select[name=accountType]').val()},
 		        dataType: 'json',
 		        method: 'GET',
 		    }).done(function(result){
@@ -123,9 +132,12 @@ provinceCityTownChange = function(provinceDom, cityDom, townDom, provinceCode, c
 					townOption += '<option value="'+value.Id+'">'+value.Mc+'</option>'
 				});
 				townDom.empty().append(townOption);
-				if (townCode != undefined) {
-					townDom.val(townCode).trigger('change');
-				} 
+				//是修改且是第一次执行，显示原镇区的值，
+				//其他情况则显示第一个镇区值
+				if (townCode != undefined && cityFlag) {
+					townDom.val(townCode).trigger('change');//执行一次之后将不进入此if语句，都将进入else
+					cityFlag = false;
+				}
 		    }).fail(function(){
 		        return AlertDialog.error('无法获取区地址信息！');
 		    });
@@ -171,6 +183,12 @@ provinceCityTownChange = function(provinceDom, cityDom, townDom, allProvince, pr
 	});
 	provinceDom.append(provinceOption);
 	
+	
+    //如果是修改的情况，也就是最后三个参数不为空的情况下，
+	//确保只在第一次触发change事件时拿原来的值查找市或者区并将原来的值选中
+	//其余情况都将拿第一个去查找
+	var provinceFlag = true;
+	var cityFlag = true;
 	provinceDom.change(function(){
 		townDom.empty();
 		cityDom.empty();
@@ -192,8 +210,11 @@ provinceCityTownChange = function(provinceDom, cityDom, townDom, allProvince, pr
 				cityOption += '<option value="'+value.Id+'">'+value.Mc+'</option>'
 			});
 			cityDom.append(cityOption);
-			if (cityCode != undefined) {
+			//是修改且是第一次执行，触发"找原城市的所有镇列表"事件，
+			//其他情况都拿第一个城市获取对应镇区列表
+			if (cityCode != undefined && provinceFlag) {
 				cityDom.val(cityCode).trigger('change');
+				provinceFlag = false;//执行一次之后将不进入此if语句，都将进入else
 			} else {
 				cityDom.val(city[0].Id).trigger('change');
 			}
@@ -220,9 +241,12 @@ provinceCityTownChange = function(provinceDom, cityDom, townDom, allProvince, pr
 					townOption += '<option value="'+value.Id+'">'+value.Mc+'</option>'
 				});
 				townDom.empty().append(townOption);
-				if (townCode != undefined) {
-					townDom.val(townCode).trigger('change');
-				} 
+				//是修改且是第一次执行，显示原镇区的值，
+				//其他情况则显示第一个镇区值
+				if (townCode != undefined && cityFlag) {
+					townDom.val(townCode).trigger('change');//执行一次之后将不进入此if语句，都将进入else
+					cityFlag = false;
+				}
 		    }).fail(function(){
 		        return AlertDialog.error('无法获取区地址信息！');
 		    });
