@@ -31,6 +31,7 @@ excerpt: mysql常见sql语句合集
     mysqldump -u username -p -d dbname tablename > tablename.sql  
 	
 （5）完整语句
+
     mysqldump -u<username> -p<passwrod> -h<host> -P<port> <dbname> <tablename> > /tmp/test.sql
 
 ## case when语句
