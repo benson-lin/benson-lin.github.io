@@ -1,19 +1,18 @@
 ---
-title: "Mysql备忘"
+title: "Mysql语句备忘"
 layout: post
-date: 2017-02-06
+date: 2017-11-26
 tags:
 - Mysql
 categories: MYSQL
 blog: true
-excerpt: 包含 mysqldump 操作等，持续更新
+excerpt: mysql常见sql语句合集
 ---
 
 # Mysql备忘
 
 
-
-## 一、Mysql dump 操作
+## Mysql dump 操作
 
 （1）导出整个数据库(包括数据库中的数据）
 
@@ -30,8 +29,11 @@ excerpt: 包含 mysqldump 操作等，持续更新
 （4）导出数据库中的某张数据表的表结构（不含数据）
 
     mysqldump -u username -p -d dbname tablename > tablename.sql  
+	
+（5）完整语句
+    mysqldump -u<username> -p<passwrod> -h<host> -P<port> <dbname> <tablename> > /tmp/test.sql
 
-## 二、 case when语句
+## case when语句
 
 
 两种方式：
@@ -59,6 +61,9 @@ select ca.name, sum(case when type=1 then money else (-1)*money end) as money
 	from t301_income_expend_record re join t201_account_category ca on re.account_category_id =  ca.id 
 	where user_id=1 group by account_category_id
 ```
+
+
+
 
 ## 获取表信息
 
@@ -106,3 +111,26 @@ Max_data_length: 0
 16. Checksum: 如果启用，则对整个表的内容计算时的校验和
 17. Create_options: 指表创建时的其他所有选项
 18. Comment: 包含了其他额外信息，对于MyISAM引擎，包含了注释，如果表使用的是innodb引擎,将显示表的剩余空间。如果是一个视图，注释里面包含了VIEW字样。
+
+
+## 索引相关操作
+
+```sql
+-- 1. 添加主键索引
+ALTER TABLE `table_name` ADD PRIMARY KEY (`column`) 
+
+-- 2. 唯一索引
+ALTER TABLE `table_name` ADD UNIQUE (`column`) 
+
+-- 3. 普通索引
+ALTER TABLE `table_name` ADD INDEX index_name (`column`) 
+
+-- 4. 多列索引
+ALTER TABLE `table_name` ADD INDEX index_name (`column1`, `column2`, `column3`)
+-- 比如 因为一般情况下名字的长度不会超过 10，这样会加速索引查询速度，还会减少索引文件的大小，提高 INSERT 的更新速度。
+-- 相当于建立了 (vc_Name,vc_City,i_Age) (vc_Name,vc_City) (vc_Name) 三个组合索引（最左前缀原则）。
+ALTER TABLE myIndex ADD INDEX name_city_age (vc_Name(10),vc_City,i_Age);
+
+-- 5. 全文索引
+ALTER TABLE `table_name` ADD FULLTEXT (`column`) 
+```
