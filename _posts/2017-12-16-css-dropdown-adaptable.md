@@ -19,7 +19,7 @@ excerpt: 无
 2. 需要用`clear:both`对菜单进行清除浮动，不能用`overflow:hidden;`否则菜单部分会被隐藏
 3. 使用绝对定位和相对定位放置下拉菜单位置
 
- 
+
 
 自适应功能：
 
@@ -34,11 +34,11 @@ excerpt: 无
 
 #### 当屏幕较大时
 
-![](images/2017-12-16-css-dropdown-adaptable-01.jpg)
+![](/assets/images/2017-12-16-css-dropdown-adaptable-01.jpg)
 
 #### 当屏幕较小时
 
-![](images/2017-12-16-css-dropdown-adaptable-02.jpg)
+![](/assets/images/2017-12-16-css-dropdown-adaptable-02.jpg)
 
 ### 代码
 
