@@ -42,7 +42,7 @@ excerpt: 无
 
 ### 代码
 
-* jquery下载地址：`http://jquery.com/`
+* 文件地址：`https://github.com/benson-lin/Learning-JavaScript-CSS/tree/master/note-css/CSS实现自适应和下拉菜单`
 
 ```html
 <!DOCTYPE html>
