@@ -65,6 +65,7 @@ excerpt: 无
 			width: 80%;
 			margin: 0 auto;
 			max-width: 1000px;
+			min-width: 300px;
 			overflow: hidden;
 		}
 
@@ -115,7 +116,7 @@ excerpt: 无
 			overflow: hidden;
 		}
 
-		#wrapper #content{
+		#wrapper #main #content{
   			float: right;
   			width: 65%
 		}
@@ -161,7 +162,7 @@ excerpt: 无
 				font-size: 0.8em;
 			}
 			h1 {
-				font-size: 1em;
+				font-size: 0.8em;
 			}
 			#wrapper #header #logo {
 				display: inline-block;
@@ -185,6 +186,11 @@ excerpt: 无
 				top: 20px;
 				float: left;
 				background-color: red;
+			}
+
+			#wrapper #main #sidebar, #wrapper #main #content{
+	  			float: none;
+	  			width: 100%
 			}
 
 		}
