@@ -29,7 +29,7 @@ excerpt: mysql常见sql语句合集
 （4）导出数据库中的某张数据表的表结构（不含数据）
 
     mysqldump -u username -p -d dbname tablename > tablename.sql  
-	
+
 （5）完整语句
 
     mysqldump -u<username> -p<passwrod> -h<host> -P<port> <dbname> <tablename> > /tmp/test.sql
@@ -63,7 +63,13 @@ select ca.name, sum(case when type=1 then money else (-1)*money end) as money
 	where user_id=1 group by account_category_id
 ```
 
+## 获取最慢sql
 
+```sql
+select * from information_schema.processlist where command <>'Sleep' order by time DESC limit 15;
+```
+
+查看执行时间最长的在跑的sql，如果sql执行时间长，并且有并发量（有多条同样的sql在同时执行），基本可以确认是这条
 
 
 ## 获取表信息
