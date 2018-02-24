@@ -26,3 +26,5 @@ categories: OTHER
 1. 响应式设计创意收集网址：`https://mediaqueri.es/`
 2. CSS 禅意花园：`http://www.csszengarden.com/`
 3. CSS3效果实例：`http://www.oxxostudio.tw/index.html?tag-css=3`
+4. 字体下载：`www.fontsquirrel.com`或`www.google.com/webfonts`
+

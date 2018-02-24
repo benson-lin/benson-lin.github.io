@@ -1,7 +1,7 @@
 ---
 title: "Mysql语句备忘"
 layout: post
-date: 2017-11-26
+date: 2018-02-24
 tags:
 - Mysql
 categories: MYSQL
@@ -63,13 +63,51 @@ select ca.name, sum(case when type=1 then money else (-1)*money end) as money
 	where user_id=1 group by account_category_id
 ```
 
-## 获取最慢sql
+## 查看最慢sql
+
+查看任务数量：
+
+```sql
+select count(1) from information_schema.processlist;
+```
+
+查看非sleep最多的sql：
+
+```sql
+select info, count(1) as count from information_schema.processlist  where command <>'Sleep' group by info order by count desc limit 3;
+```
+
+查看非sleep占用时间最长的sql:
 
 ```sql
 select * from information_schema.processlist where command <>'Sleep' order by time DESC limit 15;
 ```
 
 查看执行时间最长的在跑的sql，如果sql执行时间长，并且有并发量（有多条同样的sql在同时执行），基本可以确认是这条
+
+如果需要kill掉，可以先执行下面语句获取ID，然后在notepad中批量替换为`kill id;`
+
+```sql
+select ID from information_schema.processlist where COMMAND<>'Sleep' 
+	order by Time desc limit 15;
++-----------+
+| ID        |
++-----------+
+| 280334095 | 
+| 280334097 | 
+| 280338346 | 
+| 280340359 | 
+| 280340254 | 
+| 280340257 | 
+| 280337349 | 
+```
+
+或者
+
+```sql
+select concat('Kill ', id, ';') from information_schema.processlist where command <>'Sleep' order by time DESC limit 15;
+```
+
 
 
 ## 获取表信息
