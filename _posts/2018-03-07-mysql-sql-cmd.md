@@ -1,7 +1,7 @@
 ---
 title: "Mysql语句备忘"
 layout: post
-date: 2018-02-24
+date: 2018-03-07
 tags:
 - Mysql
 categories: MYSQL
@@ -12,7 +12,7 @@ excerpt: mysql常见sql语句合集
 # Mysql备忘
 
 
-## Mysql dump 操作
+## dump 操作
 
 （1）导出整个数据库(包括数据库中的数据）
 
@@ -33,6 +33,29 @@ excerpt: mysql常见sql语句合集
 （5）完整语句
 
     mysqldump -u<username> -p<passwrod> -h<host> -P<port> <dbname> <tablename> > /tmp/test.sql
+
+
+##  select并导出到csv文件
+
+```sql
+select * from test where orderId='3015' INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/test.csv' FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n';
+```
+
+如果报错可以查看 secure_file_priv 变量，文件的OUTFILE路径需要放置到该目录下：
+
+```sql
+show variables like '%secure%';
++--------------------------+------------------------------------------------+
+| Variable_name            | Value                                          |
++--------------------------+------------------------------------------------+
+| require_secure_transport | OFF                                            |
+| secure_auth              | ON                                             |
+| secure_file_priv         | C:\ProgramData\MySQL\MySQL Server 5.7\Uploads\ |
++--------------------------+------------------------------------------------+
+3 rows in set
+```
+
+
 
 ## case when语句
 
@@ -110,6 +133,30 @@ select concat('Kill ', id, ';') from information_schema.processlist where comman
 
 
 
+## 索引相关操作
+
+```sql
+-- 1. 添加主键索引
+ALTER TABLE `table_name` ADD PRIMARY KEY (`column`) 
+
+-- 2. 唯一索引
+ALTER TABLE `table_name` ADD UNIQUE (`column`) 
+
+-- 3. 普通索引
+ALTER TABLE `table_name` ADD INDEX index_name (`column`) 
+
+-- 4. 多列索引
+ALTER TABLE `table_name` ADD INDEX index_name (`column1`, `column2`, `column3`)
+-- 比如 因为一般情况下名字的长度不会超过 10，这样会加速索引查询速度，还会减少索引文件的大小，提高 INSERT 的更新速度。
+-- 相当于建立了 (vc_Name,vc_City,i_Age) (vc_Name,vc_City) (vc_Name) 三个组合索引（最左前缀原则）。
+ALTER TABLE myIndex ADD INDEX name_city_age (vc_Name(10),vc_City,i_Age);
+
+-- 5. 全文索引
+ALTER TABLE `table_name` ADD FULLTEXT (`column`) 
+```
+
+
+
 ## 获取表信息
 
 `show table status like 'table_name' \G;`
@@ -158,24 +205,3 @@ Max_data_length: 0
 18. Comment: 包含了其他额外信息，对于MyISAM引擎，包含了注释，如果表使用的是innodb引擎,将显示表的剩余空间。如果是一个视图，注释里面包含了VIEW字样。
 
 
-## 索引相关操作
-
-```sql
--- 1. 添加主键索引
-ALTER TABLE `table_name` ADD PRIMARY KEY (`column`) 
-
--- 2. 唯一索引
-ALTER TABLE `table_name` ADD UNIQUE (`column`) 
-
--- 3. 普通索引
-ALTER TABLE `table_name` ADD INDEX index_name (`column`) 
-
--- 4. 多列索引
-ALTER TABLE `table_name` ADD INDEX index_name (`column1`, `column2`, `column3`)
--- 比如 因为一般情况下名字的长度不会超过 10，这样会加速索引查询速度，还会减少索引文件的大小，提高 INSERT 的更新速度。
--- 相当于建立了 (vc_Name,vc_City,i_Age) (vc_Name,vc_City) (vc_Name) 三个组合索引（最左前缀原则）。
-ALTER TABLE myIndex ADD INDEX name_city_age (vc_Name(10),vc_City,i_Age);
-
--- 5. 全文索引
-ALTER TABLE `table_name` ADD FULLTEXT (`column`) 
-```
