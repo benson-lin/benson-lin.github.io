@@ -4,9 +4,9 @@ layout: post
 date: 2018-03-07
 tags:
 - Mysql
-  categories: MYSQL
-  blog: true
-  excerpt: 安全相关内容，根据mysql官方文档翻译并归纳
+categories: MYSQL
+blog: true
+excerpt: 安全相关内容，根据mysql官方文档翻译并归纳
 ---
 
 # Mysql安全
