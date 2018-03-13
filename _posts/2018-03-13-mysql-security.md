@@ -1,7 +1,7 @@
 ---
 title: "Mysql安全"
 layout: post
-date: 2018-03-07
+date: 2018-03-13
 tags:
 - Mysql
 categories: MYSQL
@@ -75,3 +75,44 @@ R
 
 ## 二、终端用户密码安全
 
+1. 使用 `mysql_config_editor`安全登录工具，会生成加密文件
+
+2. ` mysql -u francis -p db_name`，尽量不要在命令行使用密码，而是通过提示输入密码的形式，否则密码可能防止在`.bash_history`文件中被查看
+
+3. 保存密码在一个my.cnf，并设置600的权限（注意读取的顺序）。MySQL忽略人人可写的配置文件。这是故意的，是一个安全措施。
+
+```shell
+# The following options will be passed to all MySQL clients  
+[client]  
+host=localhost                                                                  
+password=1111 
+user=root   
+port=3306  
+
+
+chmod 600 .my.cnf
+
+shell> mysql --defaults-file=/etc/my.cnf
+
+[root@VM_172_210_centos ~]# ps -ef | grep mysql
+mysql    16820     1  0 19:38 ?        00:00:00 /bin/sh /usr/bin/mysqld_safe --basedir=/usr
+mysql    17104 16820  0 19:38 ?        00:00:00 /usr/libexec/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib64/mysql/plugin --log-error=/var/log/mariadb/mariadb.log --pid-file=/var/run/mariadb/mariadb.pid --socket=/var/lib/mysql/mysql.sock
+
+# 启动时没指定my.cnf路径时(mysqld中没有--defaults-file=选项),
+# 默认my.cnf读取顺序(mysql --help | grep 'Default options' -A 1)
+File Name	       Purpose
+/etc/my.cnf	        Global options
+/etc/mysql/my.cnf	Global options
+SYSCONFDIR/my.cnf	Global options
+$MYSQL_HOME/my.cnf	Server-specific options (server only)
+defaults-extra-file	The file specified with --defaults-extra-file, if any
+~/.my.cnf	        User-specific options
+~/.mylogin.cnf	    User-specific login path options (clients only)
+
+```
+
+   
+
+4. mysql客户端会保存语句的历史到`.mysql_history`中，保存在home目录下，为了能够保证安全，应该也对这个文件设置600权限或400权限
+
+5. 不建议：保存密码到``MYSQL_PWD` `环境变量(mysql命令的默认密码)中，这个是及其不安全，有些版本的ps命令能获取正在运行的进程的环境(如将mysql命令&挂起，ps –f)
