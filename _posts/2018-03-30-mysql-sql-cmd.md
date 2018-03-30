@@ -1,7 +1,7 @@
 ---
 title: "Mysql语句备忘"
 layout: post
-date: 2018-03-07
+date: 2018-03-30
 tags:
 - Mysql
 categories: MYSQL
@@ -33,6 +33,8 @@ excerpt: mysql常见sql语句合集
 （5）完整语句
 
     mysqldump -u<username> -p<passwrod> -h<host> -P<port> <dbname> <tablename> > /tmp/test.sql
+    
+
 
 
 ##  select并导出到csv文件
@@ -57,34 +59,66 @@ show variables like '%secure%';
 
 
 
-## case when语句
+## 导入文件到mysql
 
+1. load data：可以导入普通文本
+2. `source d:/a.sql`或`\. d:/a.sql`：导入sql文件,记得不能加引号在路径两边
 
-两种方式：
+`load data local infile 'D:/111111111111important/11.txt' into table test1;`
 
-```
-CASE sex
-         WHEN '1' THEN '男'
-         WHEN '2' THEN '女'
-ELSE '其他' END
-（列名是sex，如果放在case后，则显示在屏幕上的列名即为列名sex）
+文件的格式要符合表格格式，每个字段直接用tab分隔；
 
-
-CASE WHEN sex = '1' THEN '男'
-         WHEN sex = '2' THEN '女'
-ELSE '其他' END
- （列名是sex，如果放在when后，若是不为整个CASE WHEN语句写个别名的话，则显示在屏幕上的列名即为整个CASE WHEN语句，因此我们经常会写as作为列名，如下面的实例）
-
-```
-
-
-下面是实例, 由于有一列type标识支出收入（type=1表示收入，type2表示支出），money列都用正数去表示；问题来了，如果要统计余额，要怎么做，也就是说支出类型要转为负数，因此case when就派上用场了。
+如test1表是这样的：
 
 ```sql
-select ca.name, sum(case when type=1 then money else (-1)*money end) as money
-	from t301_income_expend_record re join t201_account_category ca on re.account_category_id =  ca.id 
-	where user_id=1 group by account_category_id
+mysql> desc test1;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(12) | YES  | MUL | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
 ```
+
+导入的txt是这样的：
+
+```txt
+1	test1
+2	test2
+```
+
+结果如下：
+
+```sql
+mysql> select * from test1;
++----+--------+
+| id | name   |
++----+--------+
+ | 1 | test1
+|  2 | test2  |
++----+--------+
+2 rows in set (0.00 sec)
+```
+
+如果要指定特定的标识符作为行的分隔符(如\r\n)或指定字符分隔字段，可以这样用：
+
+```sql
+mysql> LOAD DATA LOCAL INFILE '/path/pet.txt' INTO TABLE pet
+    -> LINES TERMINATED BY '\r\n';
+mysql> LOAD DATA INFILE 'data.txt' INTO TABLE table2
+    -> FIELDS TERMINATED BY ',';
+```
+
+如果要指定编码或插入字符的顺序：
+
+```sql
+mysql> load data local infile 'D:/111111111111important/11.txt' into table test1
+ character set utf8 fields terminated by ',' (name,id) ;
+```
+
+
+
+
 
 ## 查看最慢sql
 
@@ -156,6 +190,37 @@ ALTER TABLE `table_name` ADD FULLTEXT (`column`)
 ```
 
 
+
+
+
+## case when语句
+
+两种方式：
+
+```
+CASE sex
+         WHEN '1' THEN '男'
+         WHEN '2' THEN '女'
+ELSE '其他' END
+（列名是sex，如果放在case后，则显示在屏幕上的列名即为列名sex）
+
+
+CASE WHEN sex = '1' THEN '男'
+         WHEN sex = '2' THEN '女'
+ELSE '其他' END
+ （列名是sex，如果放在when后，若是不为整个CASE WHEN语句写个别名的话，则显示在屏幕上的列名即为整个CASE WHEN语句，因此我们经常会写as作为列名，如下面的实例）
+
+```
+
+下面是实例, 由于有一列type标识支出收入（type=1表示收入，type2表示支出），money列都用正数去表示；问题来了，如果要统计余额，要怎么做，也就是说支出类型要转为负数，因此case when就派上用场了。
+
+```sql
+select ca.name, sum(case when type=1 then money else (-1)*money end) as money
+	from t301_income_expend_record re join t201_account_category ca on re.account_category_id =  ca.id 
+	where user_id=1 group by account_category_id
+```
+
+## 
 
 ## 获取表信息
 
