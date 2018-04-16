@@ -34,8 +34,15 @@ excerpt: mysql常见sql语句合集
 
     mysqldump -u<username> -p<passwrod> -h<host> -P<port> <dbname> <tablename> > /tmp/test.sql
     
+    
 
 
+
+## mysql执行并快速导出
+
+`mysql -h *** -u *** -P 3314 -p'***' --default-character-set=utf8 *** < input.txt > output.txt`
+
+##  
 
 ##  select并导出到csv文件
 
