@@ -25,16 +25,63 @@ excerpt: mysql常见sql语句合集
 （3）导出数据库中的某张数据表（包含数据）
 
     mysqldump -u username -p dbname tablename > tablename.sql    
+    mysqldump -uroot -proot --databases db1 --tables a1 a2  >/tmp/db1.sql
 
 （4）导出数据库中的某张数据表的表结构（不含数据）
 
     mysqldump -u username -p -d dbname tablename > tablename.sql  
+    mysqldump -uroot -proot --no-data --databases db1 >/tmp/db1.sql
 
 （5）完整语句
 
     mysqldump -u<username> -p<passwrod> -h<host> -P<port> <dbname> <tablename> > /tmp/test.sql
-    
-    
+
+ ### 对于导入慢的问题
+
+使用`mysqldump -uroot -p'123' --all-database >all.sql `导出所有数据库，在目录数据库中执行
+
+```
+mysql> show variables like 'max_allowed_packet';
++--------------------+---------+
+| Variable_name      | Value   |
++--------------------+---------+
+| max_allowed_packet | 4194304 |
++--------------------+---------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> show variables like 'net_buffer_length';
++-------------------+-------+
+| Variable_name     | Value |
++-------------------+-------+
+| net_buffer_length | 16384 |
++-------------------+-------+
+1 row in set, 1 warning (0.00 sec)
+```
+
+记录下参数（max_allowed_packet和net_buffer_length不能比目标数据库的设定数值大，否则可能出错）
+
+`mysqldump -uroot -p'123' --all-database --max_allowed_packet=1047552 --net_buffer_length=16384 >all.sql`，在导出的时候使用--net_buffer_length 和--max_allowed_packet  ，大于服务端允许最大值时可能报错。
+
+
+
+包消息缓冲区初始化为net_buffer_length字节，但需要时可以增长到max_allowed_packet字节
+
+--net_buffer_length ：  TCP/IP和socket连接的缓存大小
+
+--max_allowed_packet ：服务器发送和接受的最大包长度。一个packet里面可能包含多个row data,但是至少应该存下一个row data（insert语句默认为一次性多条insert，大于最大值才拆分成多个insert，但如果单条数据大小大于最大值将报错）
+
+https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_net_buffer_length
+
+也就是此参数指定了一个缓存区的大小，用来存放用户发送的SQL语句。若接收的SQL语句大于这个缓存区，则自动增加大小，直到max_allowed_packet
+
+
+
+**修改`max_allowed_packet`**
+
+```
+[mysqldump] 
+max_allowed_packet = 16M 
+```
 
 
 
