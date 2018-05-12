@@ -57,4 +57,8 @@ blog: true
    --with-openssl=/lamp/openssl-1.0.2
    ```
 
-   
+3. 增加nginx命令
+
+   ```bash
+   ln -s /usr/local/services/nginx-1.13.12/sbin/nginx /bin/nginx
+   ```

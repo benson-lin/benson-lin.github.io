@@ -7,7 +7,6 @@ tags:
 - PHP
 categories: PHP
 blog: true
-excerpt: linux上php的安装
 ---
 
 # PHP安装
@@ -185,10 +184,9 @@ excerpt: linux上php的安装
       ```
 
 
-   
 
-   
 
-   
 
-   
+
+
+
