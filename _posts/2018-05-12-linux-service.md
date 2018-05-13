@@ -26,7 +26,7 @@ WINCH 从容关闭工作进程
 
 
 
-下面以创建nginx和php-fpm为例，假设nginx安装在/usr/local/services/nginx-1.13.12/下（如果已经创建了nginx命令，可以不用指定路径），php安装在/usr/local/services/php-7.2.5下
+下面以创建nginx和php-fpm为例，假设nginx安装在/usr/local/services/nginx-1.14.0/下（如果已经创建了nginx命令，可以不用指定路径），php安装在/usr/local/services/php-7.2.5下
 
 
 
@@ -40,22 +40,22 @@ WINCH 从容关闭工作进程
    
    
    start(){
-           /usr/local/services/nginx-1.13.12/sbin/nginx
+           /usr/local/services/nginx-1.14.0/sbin/nginx
    }
    stop(){
          ## 确保配置文件是通过的，才执行停止
-         test && /usr/local/services/nginx-1.13.12/sbin/nginx -s stop
-          #  kill -QUIT `cat /usr/local/services/nginx-1.13.12/var/run/nginx.pid`
+         test && /usr/local/services/nginx-1.14.0/sbin/nginx -s stop
+          #  kill -QUIT `cat /usr/local/services/nginx-1.14.0/var/run/nginx.pid`
    }
    restart(){
-    	  test && kill -HUP `cat /usr/local/services/nginx-1.13.12/var/run/nginx.pid`
-          # /usr/local/services/nginx-1.13.12/sbin/nginx -s reload
+    	  test && kill -HUP `cat /usr/local/services/nginx-1.14.0/var/run/nginx.pid`
+          # /usr/local/services/nginx-1.14.0/sbin/nginx -s reload
           # kill -HUP master-id
           # 从nginx.conf找到pid所在目录，我配置的是var/run/nginx.pid
           # kill -HUP `ps -ef | grep "nginx: master" | head -n 1 | awk '{print $2}'`
    }
    test(){
-       /usr/local/services/nginx-1.13.12/sbin/nginx -t
+       /usr/local/services/nginx-1.14.0/sbin/nginx -t
    }
    
    case "$1" in
