@@ -74,7 +74,7 @@ blog: true
    一般需要安装的如下：
 
    ```bash
-   yum -y install gcc gcc-c++ autoconf automake libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel mysql pcre-devel openssl openssl-devel libxslt libxslt-devel libicu libicu-devel
+   yum -y install gcc gcc-c++ autoconf automake libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel mysql pcre-devel openssl openssl-devel libxslt libxslt-devel libicu libicu-devel libcurl libcurl-devel
    
    ```
 

@@ -6,7 +6,7 @@ tag:
 - Linux
 categories: LINUX
 blog: true
-excerpt: 如何在linux上使用 service xxx start/stop/restart的命令呢？这篇文章就是说这个的
+excerpt: 如何在linux上使用 service xxx start/stop/restart的命令呢？这篇文章就是说这个的。举了两个例子：分别是nginx和php-fpm的脚本
 ---
 
 # Linux 创建service
@@ -17,15 +17,10 @@ excerpt: 如何在linux上使用 service xxx start/stop/restart的命令呢？�
 
 ```
 TERM,INT 快速关闭
-
 QUIT 从容关闭
-
 HUP 平滑重启，重新加载配置文件
-
 USR1 重新打开日志文件，在切割日志时用途较大
-
 USR2 平滑升级可执行程序
-
 WINCH 从容关闭工作进程
 ```
 
@@ -48,13 +43,15 @@ WINCH 从容关闭工作进程
            /usr/local/services/nginx-1.13.12/sbin/nginx
    }
    stop(){
-           /usr/local/services/nginx-1.13.12/sbin/nginx -s stop
+         ## 确保配置文件是通过的，才执行停止
+         test && /usr/local/services/nginx-1.13.12/sbin/nginx -s stop
+          #  kill -QUIT `cat /usr/local/services/nginx-1.13.12/var/run/nginx.pid`
    }
    restart(){
-          /usr/local/services/nginx-1.13.12/sbin/nginx -s reload
+    	  test && kill -HUP `cat /usr/local/services/nginx-1.13.12/var/run/nginx.pid`
+          # /usr/local/services/nginx-1.13.12/sbin/nginx -s reload
           # kill -HUP master-id
           # 从nginx.conf找到pid所在目录，我配置的是var/run/nginx.pid
-          # kill -HUP `cat /usr/local/services/nginx-1.13.12/var/run/nginx.pid`
           # kill -HUP `ps -ef | grep "nginx: master" | head -n 1 | awk '{print $2}'`
    }
    test(){
@@ -75,7 +72,7 @@ WINCH 从容关闭工作进程
            test
            ;;
    *)
-           echo "Usage: $0 {start|restart|stop}"
+           echo "Usage: $0 {start|restart|stop|test}"
            exit 1
            ;;
    esac

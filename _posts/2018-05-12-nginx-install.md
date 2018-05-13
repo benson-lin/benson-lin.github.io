@@ -14,9 +14,8 @@ blog: true
 1. 下载pcre,zlib和openssl，并下载nigix安装包
 
    ```bash
-    wget -O /tmp/pcre-8.42.tar.gz  http://jaist.dl.sourceforge.net/project/pcre/pcre/8.42/pcre-8.42.tar.gz
+    wget -O /tmp/pcre-8.42.tar.gz  https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.gz
    tar -zxcf  pcre-8.42.tar.gz
-   cd pcre-8.42.tar.gz
    cd pcre-8.42/  
    ./configure  
    make && make install 
@@ -39,11 +38,11 @@ blog: true
 2. 安装Niginx
 
    ```bash
-   wget -O /tmp/nginx-1.13.12.tar.gz http://nginx.org/download/nginx-1.13.12.tar.gz
-   tar -zxvf nginx-1.13.12.tar.gz
-   cd /tmp/nginx-1.13.12
-   mkdir /usr/local/services/nginx-1.13.12
-   ./configure --prefix=/usr/local/services/nginx-1.13.12/ --with-http_stub_status_module --with-http_ssl_module --with-http_realip_module  --with-openssl=/tmp/openssl-1.1.1-pre6
+   wget -O /tmp/nginx-1.14.0.tar.gz http://nginx.org/download/nginx-1.14.0.tar.gz
+   tar -zxvf nginx-1.14.0.tar.gz
+   cd /tmp/nginx-1.14.0
+   mkdir /usr/local/services/nginx-1.14.0
+   ./configure --prefix=/usr/local/services/nginx-1.14.0/ --with-http_stub_status_module --with-http_ssl_module --with-http_realip_module  --with-openssl=/tmp/openssl-1.1.1-pre6
    make && make install
    
    如果configure报错，类似
@@ -60,5 +59,5 @@ blog: true
 3. 增加nginx命令
 
    ```bash
-   ln -s /usr/local/services/nginx-1.13.12/sbin/nginx /bin/nginx
+   ln -s /usr/local/services/nginx-1.14.0/sbin/nginx /bin/nginx
    ```
