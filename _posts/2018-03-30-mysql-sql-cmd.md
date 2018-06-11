@@ -60,7 +60,7 @@ mysql> show variables like 'net_buffer_length';
 
 记录下参数（max_allowed_packet和net_buffer_length不能比目标数据库的设定数值大，否则可能出错）
 
-`mysqldump -uroot -p'123' --all-database --default-character-set=utf8 --max_allowed_packet=1047552 --net_buffer_length=16384 >all.sql`，在导出的时候使用--net_buffer_length 和--max_allowed_packet  ，大于服务端允许最大值时可能报错。
+`mysqldump -uroot -p'123' db table -w "time>'xxxx'" --default-character-set=utf8 --max_allowed_packet=1047552 --net_buffer_length=16384 >all.sql`，在导出的时候使用--net_buffer_length 和--max_allowed_packet  ，大于服务端允许最大值时可能报错。
 
 
 
@@ -82,6 +82,8 @@ https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_net_
 [mysqldump] 
 max_allowed_packet = 16M 
 ```
+
+
 
 
 
