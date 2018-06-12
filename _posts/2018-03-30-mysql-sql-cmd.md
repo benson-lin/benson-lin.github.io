@@ -87,11 +87,67 @@ max_allowed_packet = 16M
 
 
 
+### 查看表占用的大小
+
+```mysql
+SELECT 
+    table_name AS `Table`, 
+    round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` 
+FROM information_schema.TABLES 
+WHERE table_schema = "dbname"
+    AND table_name = "tablename";
+```
+
+结果如下：
+
+```
++-----------------------------------+------------+
+| Table                             | Size in MB |
++-----------------------------------+------------+
+| tablename                         |     367.08 |
++-----------------------------------+------------+
+1 row in set (0.00 sec)
+```
+
+
+
+查看每个数据库每个表的大小，按大小降序
+
+```mysql
+SELECT 
+     table_schema as `Database`, 
+     table_name AS `Table`, 
+     round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` 
+FROM information_schema.TABLES 
+ORDER BY (data_length + index_length) DESC;
+```
+
+
+
+如果只是看某个库的每个表大小
+
+```mysql
+SELECT 
+     table_schema as `Database`, 
+     table_name AS `Table`, 
+     round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` 
+FROM information_schema.TABLES  WHERE table_schema = "dbname"
+ORDER BY (data_length + index_length) DESC;	
+```
+
+
+
+
+
 ## mysql执行并快速导出
 
-`mysql -h *** -u *** -P 3314 -p'***' --default-character-set=utf8 *** < input.txt > output.txt`
+````mysql
+mysql -h *** -u *** -P 3314 -p'***' --default-character-set=utf8 *** < input.txt > output.txt
+````
 
-##  
+
+
+
 
 ##  select并导出到csv文件
 
