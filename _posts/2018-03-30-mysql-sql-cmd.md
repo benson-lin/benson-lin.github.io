@@ -60,7 +60,7 @@ mysql> show variables like 'net_buffer_length';
 
 记录下参数（max_allowed_packet和net_buffer_length不能比目标数据库的设定数值大，否则可能出错）
 
-`mysqldump -uroot -p'123' --all-database --max_allowed_packet=1047552 --net_buffer_length=16384 >all.sql`，在导出的时候使用--net_buffer_length 和--max_allowed_packet  ，大于服务端允许最大值时可能报错。
+`mysqldump -uroot -p'123' db table -w "time>'xxxx'" --default-character-set=utf8 --max_allowed_packet=1047552 --net_buffer_length=16384 >all.sql`，在导出的时候使用--net_buffer_length 和--max_allowed_packet  ，大于服务端允许最大值时可能报错。
 
 
 
@@ -262,7 +262,9 @@ echo ‘SQL语句执行：’.$sql.’，参数：’.json_encode($bindings).’
 
 `mysql -h *** -u *** -P 3314 -p'***' dbname --default-character-set=utf8 *** < input.txt > output.txt`
 
-##  
+
+
+
 
 ##  select并导出到csv文件
 
@@ -284,6 +286,55 @@ show variables like '%secure%';
 3 rows in set
 ```
 
+
+
+### 查看表占用的大小
+
+```mysql
+SELECT 
+    table_name AS `Table`, 
+    round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` 
+FROM information_schema.TABLES 
+WHERE table_schema = "dbname"
+    AND table_name = "tablename";
+```
+
+结果如下：
+
+```
++-----------------------------------+------------+
+| Table                             | Size in MB |
++-----------------------------------+------------+
+| tablename                         |     367.08 |
++-----------------------------------+------------+
+1 row in set (0.00 sec)
+```
+
+
+
+查看每个数据库每个表的大小，按大小降序
+
+```mysql
+SELECT 
+     table_schema as `Database`, 
+     table_name AS `Table`, 
+     round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` 
+FROM information_schema.TABLES 
+ORDER BY (data_length + index_length) DESC;
+```
+
+
+
+如果只是看某个库的每个表大小
+
+```mysql
+SELECT 
+     table_schema as `Database`, 
+     table_name AS `Table`, 
+     round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` 
+FROM information_schema.TABLES  WHERE table_schema = "dbname"
+ORDER BY (data_length + index_length) DESC;	
+```
 
 
 ## 导入文件到mysql
