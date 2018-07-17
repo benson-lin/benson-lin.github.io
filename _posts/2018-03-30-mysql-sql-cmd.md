@@ -85,9 +85,182 @@ max_allowed_packet = 16M
 
 
 
+## update和select同一张表怎么办
+
+
+
+```
+delete from items where id in (select items.id from items join items_links on items.id = items_links.iid where items_links.linkid=2)
+
+[Err] 1093 - Table 'items' is specified twice, both as a target for 'DELETE' and as a separate source for data
+或者
+ERROR 1093 (HY000): You can't specify target table 'xxx' for update in FROM clause
+```
+
+
+
+如果只是删除某张表的数据
+
+```
+delete items from items join items_links on items.id = items_links.iid where items_links.linkid=2
+```
+
+如果删除两张表的数据
+
+```
+delete items,items_links from items join items_links on items.id = items_links.iid where items_links.linkid=2
+```
+
+
+
+update也是一样的
+
+```
+update items join items_links on items.id = items_links.iid set items.name='222' where items_links.linkid=2
+
+update items join items_links on items.id = items_links.iid set items_links.linkid=3 where items_links.linkid=2
+```
+
+
+
+##  INSERT INTO ... SELECT 
+
+```
+insert into tickets (user_id, price, expires_in) 
+select 
+user_id, 10 as price, '2017-09-09' as expires_in 
+from orders 
+where product_id=123 and is_paid=1;
+```
+
+
+
+```
+insert into class_members (class_id, user_id, status) 
+select 
+c.id as class_id, 
+u.id as user_id, 
+1 as status
+from classes as c cross join users as u
+where c.name in ('体育课', '美术课') and u.class_name='1班';
+```
+
+
+
+```
+insert into temp(name, id)  select DISTINCT name,linkid as id from items join items_links on items.id = items_links.iid ;
+```
+
+## 记录操作,调试时有用
+
+```
+C:\Users\Administrator>mysql -uroot -p --tee=D:/test.txt
+```
+
+```
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 28
+Server version: 10.2.13-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> user
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'user' at line 1
+MariaDB [(none)]> use test;
+Database changed
+MariaDB [test]> select * from items;
++----+-----------+
+| id | name      |
++----+-----------+
+|  1 | bensonlin |
+|  2 | 222       |
+|  3 | 222       |
++----+-----------+
+3 rows in set (0.00 sec)
+
+```
+
+也可以用下面的方法
+
+```
+mysql >   tee  C:\log.txt        //这个命令后面的操作都会记录在log中
+当你不想记录log时，你可以使用notee命令，这个命令后面的操作将不会再被记录
+mysql >   notee;
+```
+
+当我们在查询一张表的时候，输出的结果可能会很多，这时在控制台上分析起来很不方便。我们可以将结果导出到文件分析
+
+```
+ 1） 直接使用控制台的重定向功能。
+mysql -uroot -proot  -e   "use test;show tables;" > d:/log.txt
+mysql -uroot -proot  test -e   "show tables;" > d:/log.txt
+2)   使用tee命令；
+mysql >  tee  C:\log.txt;
+mysql >  use mysql;
+mysql >  show tables;
+mysql >  notee;         //关闭记录功能
+
+3)  有时候还可以使用select  * from tableName into outfile 'filename'；
+
+```
+
+##  记录sql语句
+
+https://www.jb51.net/article/116559.htm
+
+
+
+你需要把下面的放到 `AppServiceProvider` 的 `boot`中
+
+在此处弄个全局变量记录所有的执行的语句
+
+```
+$a = 某全局变量
+app('db')->listen(function($query, $bindings = null, $time = null, $connectionName = null) use($a) {
+    $a->push(....);
+});
+```
+
+1. DB::enableQueryLog();
+
+2. 
+
+   执行语句
+
+3. 
+
+   dd(DB::getQueryLog());
+
+
+
+通过listen方法实现，一般是作为监听事件，加到服务里面。每次执行sql，输出对应的执行语句
+
+ 
+
+5.4版本直接这么使用
+
+ 
+
+```
+DB::listen(function($sql, $bindings, $time) {
+
+
+
+echo ‘SQL语句执行：’.$sql.’，参数：’.json_encode($bindings).’,耗时：’.$time.’ms’;
+
+
+
+});
+```
+
+ 
+
 ## mysql执行并快速导出
 
-`mysql -h *** -u *** -P 3314 -p'***' --default-character-set=utf8 *** < input.txt > output.txt`
+`mysql -h *** -u *** -P 3314 -p'***' dbname --default-character-set=utf8 *** < input.txt > output.txt`
 
 ##  
 
