@@ -15,7 +15,7 @@ blog: true
 
    ```bash
     wget -O /tmp/pcre-8.42.tar.gz  https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.gz
-   tar -zxcf  pcre-8.42.tar.gz
+   tar -zxvf  pcre-8.42.tar.gz
    cd pcre-8.42/  
    ./configure  
    make && make install 
@@ -42,7 +42,7 @@ blog: true
    tar -zxvf nginx-1.14.0.tar.gz
    cd /tmp/nginx-1.14.0
    mkdir /usr/local/services/nginx-1.14.0
-   ./configure --prefix=/usr/local/services/nginx-1.14.0/ --with-http_stub_status_module --with-http_ssl_module --with-http_realip_module  --with-openssl=/tmp/openssl-1.1.1-pre6
+   ./configure --prefix=/usr/local/services/nginx-1.14.0/ --with-http_stub_status_module --with-http_ssl_module --with-http_realip_module --with-openssl=/tmp/openssl-1.1.1-pre6
    make && make install
    
    如果configure报错，类似
@@ -61,3 +61,26 @@ blog: true
    ```bash
    ln -s /usr/local/services/nginx-1.14.0/sbin/nginx /bin/nginx
    ```
+
+
+
+## nginx添加模块
+
+```
+./configure --prefix=/usr/local/services/nginx-1.14.0/ --with-http_stub_status_module --with-http_ssl_module --with-http_realip_module --with-openssl=/tmp/openssl-1.1.1-pre6  --with-http_gzip_static_module 
+
+添加其他模块直接加载后面
+--with-http_gzip_static_module 
+
+第三方模块
+ --add-module=/data/software/ngx_http_google_filter_module
+ 
+make //不要make install
+
+cd /usr/local/services/nginx-1.14.0/sbin 
+cp nginx nginx.bak
+cp ./objs/nginx /usr/local/services/nginx-1.14.0/sbin/
+  
+  
+```
+
