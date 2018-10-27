@@ -5,7 +5,7 @@ date: 2016-09-08
 tags:
 - Other
 - Git
-categories: OTHER
+categories: GIT
 excerpt: Github 如何在一台电脑使用多个账号提交代码！
 ---
 

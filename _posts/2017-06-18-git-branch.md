@@ -5,7 +5,7 @@ date: 2017-06-18
 tags:
 - Other
 - Git
-categories: OTHER
+categories: GIT
 blog: true
 excerpt: Git 分支创建，合并删除，冲突解决等
 ---
@@ -252,7 +252,7 @@ $ git log --graph --pretty=oneline --abbrev-commit
 
 git branch -D dev
 
-```linux
+​```linux
 bensonlin@bensonlin-PC1 MINGW64 ~/Desktop/test2
 $ git init
 Initialized empty Git repository in C:/Users/bensonlin/Desktop/test2/.git/
@@ -326,9 +326,9 @@ Username for 'https://github.com': benson-lin
 Total 0 (delta 0), reused 0 (delta 0)
 To https://github.com/benson-lin/test.git
  * [new branch]      dev -> dev
-``` 
- 
- 
+```
+
+
 ## 4. 远程创建新分支后，其他人怎么得到这个新分支
 
 直接git pull
