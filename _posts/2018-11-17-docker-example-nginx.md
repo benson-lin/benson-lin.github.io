@@ -82,7 +82,7 @@ nginx               latest              1d55926ed281        25 seconds ago      
 
 ```
 
-看下里面的目录结构先（通过创建一个命令行容器）`docker -it nginx /bin/bash`
+看下里面的目录结构先（通过创建一个命令行容器）`docker run -it nginx /bin/bash`
 
 
 
