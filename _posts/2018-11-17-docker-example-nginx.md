@@ -154,3 +154,18 @@ Error response from daemon: You cannot remove a running container 6ea6c98fed2abf
 ```
 
 删除镜像：`docker rmi nginx`
+
+
+如果我们不想在 docker run 的时候传递启动nginx参数，可以修改Dockerfile，增加CMD，启动时则`docker run --name nginx_ct -d -p 80:80  nginx`
+
+```
+FROM centos:centos7
+
+RUN mkdir -p /usr/local/services/nginx-1.14.0
+
+ADD package/nginx-1.14.0.tar.gz /usr/local/services/nginx-1.14.0
+
+EXPOSE 80
+
+CMD ["/usr/local/services/nginx-1.14.0/sbin/nginx", "-g", "daemon off;"]
+```
