@@ -233,6 +233,9 @@ $ crontab -l
 说明：
 run-parts这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是目录名了
 
+实例15：输出到时间文件
+*/1 * * * * cd /data/release/beian.tss.sng.com && php artisan icpip:baxxbg >> "/data/release/beian.tss.sng.com/logs/IcpBaxxBg/IcpBaxxBg-$(date +"\%Y-\%m-\%d").log" 2>&1
+
 ```
 
 
