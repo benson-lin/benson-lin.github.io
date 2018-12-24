@@ -14,8 +14,6 @@ excerpt: 如何在docker中部署nginx服务并启动呢？
 
 首先说下为什么我们不用 dockerhub上的nginx(https://hub.docker.com/_/nginx/)，是因为我们可能有这种需求：就是在一个服务器已经运行了，因为业务需要，需要把这个业务移到docker中(如打包后对整个系统服务进行售卖，方便部署和管理等)。假如这个时候使用的服务是nginx。以nginx为例，说明在本地其实整个nginx是已经安装好的了，这个时候虽然也可以从dockerhub下载nginx，但是明显是从本地打包成tar.gz后拷贝到docker镜像中然后启动更加的容易(php同理)，也不会有什么兼容性问题。下面将假设我们的机器上已经编译安装了nginx，从 本地通过curl http://localhost 可以看到 Welcome to nginx! 字样了。
 
-
-
 下面是安装好后的文件结构目录
 
 ```
