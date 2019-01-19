@@ -33,7 +33,15 @@ iptables-save  >  /etc/sysconfig/iptables
 ```
 (许多博客说设置默认drop, `iptables  -P  INPUT  DROP`，我感觉不太好，因为设置后一旦不小心清空列表了，就连内网都连不上了)
 
+单个操作：
 
+```bash
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A INPUT 123.207.88.17 -j ACCEPT
+iptables -A INPUT 192.168.122.0/24 -j ACCEPT
+#iptables -A INPUT -m iprange --src-range 192.168.122.2-192.168.122.34 -j ACCEPT
+#iptables -A INPUT -m iprange --dest-range 8.8.8.2-8.8.8.22 -j DROP
+```
 
 删除：
 
