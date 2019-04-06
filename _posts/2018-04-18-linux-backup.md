@@ -122,6 +122,38 @@ crontab配置如下：
 ```
 
 
+## 日志定时清理脚本
+
+```
+#!/bin/bash
+
+date=`date "+%Y-%m-%d" --date="-60 day"`
+echo "start clear $date"
+
+cd /data/webroot/logs
+
+for filename in `ls`
+do
+  echo $filename;
+
+  filedate=${filename:4:10}
+  realdate=`echo $filedate | grep -Eq "[0-9]{4}-[0-9]{2}-[0-9]{2}" && date -d $filedate +%Y-%m-%d `
+  if [[ "$realdate" = "$filedate" ]] 
+  then
+	if [[ -f "$filename" && "$filedate" < "$date" ]]
+	then
+        rm -f $filename
+        echo "remove: $filename"
+	fi
+  fi
+done
+
+
+```
+
+
+
+
 
 
 
